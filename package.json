@@ -10,7 +10,7 @@
     "lint:code": "npx eslint .",
     "lint:style": "stylelint \"./**/*.{css,less,vue,html}\" --fix",
     "prepare": "husky install",
-    "commit": "git-cz"
+    "cz": "git-cz"
   },
   "dependencies": {
     "vue": "^3.2.25"
@@ -36,7 +36,6 @@
     "postcss-html": "^1.5.0",
     "postcss-less": "^6.0.0",
     "prettier": "^2.7.1",
-    "sass": "^1.53.0",
     "stylelint": "^14.9.1",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recommended-less": "^1.0.4",
