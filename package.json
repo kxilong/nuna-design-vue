@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "pnpm -C play dev",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "eslint:fix": "npx eslint . --fix",
@@ -13,6 +13,9 @@
     "cz": "git-cz"
   },
   "dependencies": {
+    "@chili-ui/components": "workspace:*",
+    "@chili-ui/theme-chalk": "workspace:*",
+    "@chili-ui/utils": "workspace:*",
     "vue": "^3.2.25"
   },
   "devDependencies": {
