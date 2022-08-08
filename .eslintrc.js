@@ -7,37 +7,18 @@ module.exports = {
     jest: true,
     es6: true,
   },
-  parser: '@typescript-eslint/parser',
+  plugins: ['vue', '@typescript-eslint', 'prettier'],
   extends: [
     'eslint:recommended',
     'plugin:vue/vue3-essential',
     'plugin:@typescript-eslint/recommended',
+    'prettier',
   ],
-  parserOptions: {
-    ecmaVersion: 'latest',
-    parser: '@typescript-eslint/parser',
-    sourceType: 'module',
-  },
-  plugins: ['vue', '@typescript-eslint'],
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
-      extends: ['@vue/typescript/recommended', '@vue/prettier'],
-      parserOptions: {
-        project: './tsconfig.json',
-      },
       rules: {
-        '@typescript-eslint/no-explicit-any': 0,
-        '@typescript-eslint/ban-types': 0,
-        '@typescript-eslint/consistent-type-imports': 'error',
-        '@typescript-eslint/explicit-module-boundary-types': 0,
-        '@typescript-eslint/no-empty-function': 0,
-        '@typescript-eslint/no-non-null-assertion': 0,
-        '@typescript-eslint/no-unused-vars': [
-          'error',
-          { vars: 'all', args: 'after-used', ignoreRestSiblings: true },
-        ],
-        '@typescript-eslint/ban-ts-comment': 0,
+        'no-undef': 'off',
       },
     },
     {

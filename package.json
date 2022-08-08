@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "pnpm -C play dev",
-    "build": "vue-tsc --noEmit && vite build",
+    "clean": "pnpm run clean:dist && pnpm run -r --parallel clean",
+    "clean:dist": "rimraf dist",
+    "build": "pnpm run -C internal start",
     "preview": "vite preview",
     "eslint:fix": "npx eslint . --fix",
     "lint:code": "npx eslint .",
@@ -14,6 +16,7 @@
   },
   "dependencies": {
     "@chili-ui/components": "workspace:*",
+    "@chili-ui/internal": "workspace:*",
     "@chili-ui/theme-chalk": "workspace:*",
     "@chili-ui/utils": "workspace:*",
     "vue": "^3.2.25"
