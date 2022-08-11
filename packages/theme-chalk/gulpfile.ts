@@ -6,10 +6,10 @@ import cleanCSS from 'gulp-clean-css';
 import rename from 'gulp-rename';
 import consola from 'consola';
 import chalk from 'chalk';
-import { epOutput } from '@chili-ui/internal/src';
+import { buildOutput } from '@chili-ui/internal/src';
 
 const distFolder = path.resolve(__dirname, 'dist');
-const distBundle = path.resolve(epOutput, 'theme-chalk');
+const distBundle = path.resolve(buildOutput, 'theme-chalk');
 
 function buildThemeChalk() {
   const noElPrefixFile = /(index|base|display)/;

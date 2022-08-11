@@ -14,7 +14,14 @@
     "rimraf": "^3.0.2"
   },
   "dependencies": {
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-node-resolve": "^13.3.0",
     "consola": "^2.15.3",
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "rollup": "^2.77.3",
+    "rollup-plugin-esbuild": "^4.9.1",
+    "rollup-plugin-typescript2": "^0.32.1",
+    "rollup-plugin-vue": "^6.0.0",
+    "ts-morph": "^15.1.0"
   }
 }

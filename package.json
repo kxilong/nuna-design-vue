@@ -1,7 +1,11 @@
 {
-  "name": "chili-ui",
   "private": true,
   "version": "0.0.0",
+  "workspaces": [
+    "packages/*",
+    "play",
+    "docs"
+  ],
   "scripts": {
     "dev": "pnpm -C play dev",
     "clean": "pnpm run clean:dist && pnpm run -r --parallel clean",

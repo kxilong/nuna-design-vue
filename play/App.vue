@@ -1,3 +1,5 @@
 <template>
-  <div>测试代码</div>
+  <div>
+    <c-button />
+  </div>
 </template>
