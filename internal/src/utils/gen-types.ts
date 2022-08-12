@@ -1,4 +1,4 @@
-import { buildOutput, projRoot, wpRoot } from '@chili-ui/internal/src';
+import { buildOutput, projRoot, epRoot } from '@chili-ui/internal/src';
 import glob from 'fast-glob';
 import { Project, ModuleKind, ScriptTarget, SourceFile } from 'ts-morph';
 import path from 'path';
@@ -7,7 +7,7 @@ import { series } from 'gulp';
 
 export const genEntryTypes = async () => {
   const files = await glob('*.ts', {
-    cwd: wpRoot,
+    cwd: epRoot,
     absolute: true,
     onlyFiles: true,
   });
@@ -20,7 +20,7 @@ export const genEntryTypes = async () => {
       noEmitOnError: false,
       buildOutput: path.resolve(buildOutput, 'entry/types'),
       target: ScriptTarget.ESNext,
-      rootDir: wpRoot,
+      rootDir: epRoot,
       strict: false,
     },
     skipFileDependencyResolution: true,

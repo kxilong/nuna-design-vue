@@ -7,7 +7,7 @@ import vue from 'rollup-plugin-vue';
 import typescript from 'rollup-plugin-typescript2';
 import { parallel } from 'gulp';
 import path from 'path';
-import { buildOutput, wpRoot } from '@chili-ui/internal/src';
+import { buildOutput, epRoot } from '@chili-ui/internal/src';
 import { rollup, OutputOptions } from 'rollup';
 import fs from 'fs/promises';
 import { buildConfig } from '../build-info';
@@ -16,9 +16,10 @@ import { pathRewriter } from '../utils/gulp';
 const buildFull = async () => {
   // rollup 打包的配置信息
   const config = {
-    input: path.resolve(wpRoot, 'index.ts'), // 打包入口
+    input: path.resolve(epRoot, 'index.ts'), // 打包入口
     plugins: [nodeResolve(), typescript(), vue(), commonjs()],
     external: id => /^vue/.test(id), // 打包的时候不打包vue代码
+    // treeshake: true,
   };
 
   // 组件库两种使用方式 import 导入组件库 在浏览器中使用script
@@ -53,13 +54,13 @@ const buildFull = async () => {
 
 async function buildEntry() {
   // 读取w-plus目录下的所有内容，包括目录和文件
-  const entryFiles = await fs.readdir(wpRoot, { withFileTypes: true });
+  const entryFiles = await fs.readdir(epRoot, { withFileTypes: true });
 
   // 过滤掉 不是文件的内容和package.json文件  index.ts 作为打包入口
   const entryPoints = entryFiles
     .filter(f => f.isFile())
     .filter(f => !['package.json'].includes(f.name))
-    .map(f => path.resolve(wpRoot, f.name));
+    .map(f => path.resolve(epRoot, f.name));
 
   const config = {
     input: entryPoints,

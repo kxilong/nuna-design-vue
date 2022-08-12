@@ -1,10 +1,10 @@
 import { parallel, series } from 'gulp';
 import { withTaskName, run, runTask } from '@chili-ui/internal/src';
 import { genTypes } from './src/utils/gen-types';
-import { buildOutput, wpRoot } from '@chili-ui/internal/src';
+import { buildOutput, epRoot } from '@chili-ui/internal/src';
 
 const copySourceCode = () => async () => {
-  await run(`cp ${wpRoot}/package.json ${buildOutput}/package.json`);
+  await run(`cp ${epRoot}/package.json ${buildOutput}/package.json`);
 };
 
 export default series(
@@ -22,5 +22,4 @@ export default series(
 );
 
 // 任务执行器 gulp 任务名 就会执行对应的任务
-export * from './src/task/full-component';
-export * from './src/task/modules';
+export * from './src/task';

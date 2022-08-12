@@ -1,4 +1,3 @@
-// import { WIcon,WButton } from "@w-plus/components";
 import * as components from '@chili-ui/components';
 import type { App } from 'vue';
 
@@ -15,10 +14,8 @@ const install = (app: App) => {
   });
 };
 
-// app.use(WPlus)
 export default {
   install,
 };
 
-// import { WIcon } from 'w-plus
 export * from '@chili-ui/components';
