@@ -1,9 +1,11 @@
 import { buildOutput, projRoot, epRoot } from '@chili-ui/internal/src';
 import glob from 'fast-glob';
-import { Project, ModuleKind, ScriptTarget, SourceFile } from 'ts-morph';
+import { Project, SourceFile } from 'ts-morph';
 import path from 'path';
 import fs from 'fs/promises';
 import { series } from 'gulp';
+
+const outDir = path.resolve(buildOutput, 'types');
 
 export const genEntryTypes = async () => {
   const files = await glob('*.ts', {
@@ -13,20 +15,17 @@ export const genEntryTypes = async () => {
   });
   const project = new Project({
     compilerOptions: {
-      declaration: true,
-      module: ModuleKind.ESNext,
-      allowJs: true,
       emitDeclarationOnly: true,
-      noEmitOnError: false,
-      buildOutput: path.resolve(buildOutput, 'entry/types'),
-      target: ScriptTarget.ESNext,
-      rootDir: epRoot,
-      strict: false,
+      outDir,
+      baseUrl: projRoot,
+      preserveSymlinks: true,
+      skipLibCheck: true,
+      noImplicitAny: false,
     },
-    skipFileDependencyResolution: true,
-    tsConfigFilePath: path.resolve(projRoot, 'tsconfig.json'),
+    tsConfigFilePath: path.resolve(projRoot, 'tsconfig.web.json'),
     skipAddingFilesFromTsConfig: true,
   });
+
   const sourceFiles: SourceFile[] = [];
   files.map(f => {
     const sourceFile = project.addSourceFileAtPath(f);

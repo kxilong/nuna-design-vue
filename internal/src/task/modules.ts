@@ -30,14 +30,14 @@ const buildEachComponent = async () => {
     const config = {
       input,
       plugins: [nodeResolve(), typescript(), vue(), commonjs()],
-      external: id => /^vue/.test(id) || /^@w-plus/.test(id), // 排除掉vue和@w-plus的依赖
+      external: id => /^vue/.test(id) || /^@chili-ui/.test(id), // 排除掉vue和@chili-ui的依赖
     };
     const bundle = await rollup(config);
 
     const options = Object.values(buildConfig).map(config => ({
       format: config.format,
       file: path.resolve(config.output.path, `components/${file}/index.js`),
-      paths: pathRewriter(config.output.name), // @w-plus => w-plus/es w-plus/lib  处理路径
+      paths: pathRewriter(config.output.name), // @chili-ui => chili-ui/es chili-ui/lib  处理路径
       exports: 'named',
     }));
 
@@ -63,7 +63,7 @@ async function genTypes() {
       skipLibCheck: true,
       strict: false,
     },
-    tsConfigFilePath: path.resolve(projRoot, 'tsconfig.json'),
+    tsConfigFilePath: path.resolve(projRoot, 'tsconfig.web.json'),
     skipAddingFilesFromTsConfig: true,
   });
 
@@ -114,9 +114,9 @@ async function genTypes() {
 }
 
 function copyTypes() {
-  const src = path.resolve(buildOutput, 'types/components/');
+  const src = path.resolve(buildOutput, 'types/packages/components/');
   const copy = module => {
-    const output = path.resolve(buildOutput, module, 'components');
+    const output = path.resolve(buildOutput, module, 'packages/components');
     return () => run(`cp -r ${src}/* ${output}`);
   };
   return parallel(copy('es'), copy('lib'));
