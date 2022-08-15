@@ -3,23 +3,52 @@
  */
 import { nodeResolve } from '@rollup/plugin-node-resolve'; // 处理文件路径
 import commonjs from '@rollup/plugin-commonjs'; // 将 CommonJS 模块转换为 ES6
-import vue from 'rollup-plugin-vue';
-import typescript from 'rollup-plugin-typescript2';
+import vue from '@vitejs/plugin-vue';
 import { parallel } from 'gulp';
 import path from 'path';
 import { buildOutput, epRoot } from '@chili-ui/internal/src';
 import { rollup, OutputOptions } from 'rollup';
-import fs from 'fs/promises';
-import { buildConfig } from '../build-info';
-import { pathRewriter } from '../utils/gulp';
+import { target } from '../build-info';
+import DefineOptions from 'unplugin-vue-define-options/rollup';
+import vueJsx from '@vitejs/plugin-vue-jsx';
+import esbuild, { minify as minifyPlugin } from 'rollup-plugin-esbuild';
+import type { Plugin } from 'rollup';
 
 const buildFull = async () => {
   // rollup 打包的配置信息
+  const plugins: Plugin[] = [
+    DefineOptions(),
+    vue({
+      isProduction: true,
+    }),
+    vueJsx(),
+    nodeResolve({
+      extensions: ['.mjs', '.js', '.json', '.ts'],
+    }),
+    commonjs(),
+    esbuild({
+      exclude: [],
+      sourceMap: true,
+      target,
+      loaders: {
+        '.vue': 'ts',
+      },
+      define: {
+        'process.env.NODE_ENV': JSON.stringify('production'),
+      },
+      treeShaking: true,
+      legalComments: 'eof',
+    }),
+    minifyPlugin({
+      target,
+      sourceMap: true,
+    }),
+  ];
   const config = {
     input: path.resolve(epRoot, 'index.ts'), // 打包入口
-    plugins: [nodeResolve(), typescript(), vue(), commonjs()],
+    plugins,
     external: id => /^vue/.test(id), // 打包的时候不打包vue代码
-    // treeshake: true,
+    treeshake: true,
   };
 
   // 组件库两种使用方式 import 导入组件库 在浏览器中使用script
@@ -29,9 +58,9 @@ const buildFull = async () => {
   const buildConfig = [
     {
       format: 'umd', // 打包的格式
-      file: path.resolve(buildOutput, 'dist/index.js'),
-      name: 'ChiliUI', // 全局变量名字
+      file: path.resolve(buildOutput, 'dist/index.full.js'),
       exports: 'named', // 导出的名字 用命名的方式导出 libaryTarget:"" name:""
+      name: 'ChiliUI', // 全局变量名字
       globals: {
         // 表示使用的vue是全局的
         vue: 'Vue',
@@ -39,7 +68,7 @@ const buildFull = async () => {
     },
     {
       format: 'esm',
-      file: path.resolve(buildOutput, 'dist/index.esm.js'),
+      file: path.resolve(buildOutput, 'dist/index.full.mjs'),
     },
   ];
 
@@ -51,34 +80,5 @@ const buildFull = async () => {
     }),
   );
 };
-
-async function buildEntry() {
-  // 读取w-plus目录下的所有内容，包括目录和文件
-  const entryFiles = await fs.readdir(epRoot, { withFileTypes: true });
-
-  // 过滤掉 不是文件的内容和package.json文件  index.ts 作为打包入口
-  const entryPoints = entryFiles
-    .filter(f => f.isFile())
-    .filter(f => !['package.json'].includes(f.name))
-    .map(f => path.resolve(epRoot, f.name));
-
-  const config = {
-    input: entryPoints,
-    plugins: [nodeResolve(), vue(), typescript()],
-    external: (id: string) => /^vue/.test(id) || /^@chili-ui/.test(id),
-  };
-
-  const bundle = await rollup(config);
-  return Promise.all(
-    Object.values(buildConfig)
-      .map(config => ({
-        format: config.format,
-        dir: config.output.path,
-        paths: pathRewriter(config.output.name),
-      }))
-      .map(option => bundle.write(option as OutputOptions)),
-  );
-}
-
 // gulp适合流程控制和代码的转义  没有打包的功能
-export const buildFullComponent = parallel(buildFull, buildEntry);
+export const buildFullComponent = parallel(buildFull);

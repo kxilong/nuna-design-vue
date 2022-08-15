@@ -1,13 +1,14 @@
 import { parallel, series } from 'gulp';
 import { withTaskName, run, runTask } from '@chili-ui/internal/src';
-import { genTypes } from './src/utils/gen-types';
-import { buildOutput, epRoot } from '@chili-ui/internal/src';
+import { buildOutput, epPackage, projRoot } from '@chili-ui/internal/src';
 import { copyFile } from 'fs/promises';
 import path from 'path';
 
-const copySourceCode = () => async () => {
-  await run(`cp ${epRoot}/package.json ${buildOutput}/package.json`);
-};
+export const copyFiles = () =>
+  Promise.all([
+    copyFile(epPackage, path.join(buildOutput, 'package.json')),
+    copyFile(path.resolve(projRoot, 'README.md'), path.resolve(buildOutput, 'README.md')),
+  ]);
 
 export const copyFullStyle = async () => {
   await copyFile(
@@ -20,8 +21,9 @@ export default series(
   withTaskName('clean', () => run('pnpm run clean')),
 
   parallel(
-    runTask('buildFullComponent'), // 执行build命令时会调用rollup，给rollup传参数buildFullComponent，那么就会执行导出任务叫buildFullComponent
     runTask('buildModules'),
+    runTask('buildFullComponent'), // 执行build命令时会调用rollup，给rollup传参数buildFullComponent，那么就会执行导出任务叫buildFullComponent
+    runTask('generateTypesDefinitions'),
   ),
 
   parallel(
@@ -30,7 +32,7 @@ export default series(
       copyFullStyle,
     ),
   ),
-  parallel(genTypes, copySourceCode()),
+  parallel(copyFiles),
 );
 
 // 任务执行器 gulp 任务名 就会执行对应的任务

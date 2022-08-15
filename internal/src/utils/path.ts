@@ -11,3 +11,5 @@ export const epRoot = resolve(pkgRoot, 'chili-ui');
 export const buildOutput = resolve(projRoot, 'dist');
 
 export const PKG_NAME = 'chili-ui';
+
+export const epPackage = resolve(epRoot, 'package.json');

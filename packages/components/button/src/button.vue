@@ -6,7 +6,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'WButton',
+  name: 'CButton',
   setup() {
     const handlerClick = () => {
       alert('WQ!!!!!!');
