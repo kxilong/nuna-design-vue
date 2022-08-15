@@ -6,7 +6,7 @@ import commonjs from '@rollup/plugin-commonjs'; // 将 CommonJS 模块转换为 
 import vue from '@vitejs/plugin-vue';
 import { parallel } from 'gulp';
 import path from 'path';
-import { buildOutput, epRoot } from '@chili-ui/internal/src';
+import { buildOutput, epRoot } from '@chili-ui/internal/build/utils';
 import { rollup, OutputOptions } from 'rollup';
 import { target } from '../build-info';
 import DefineOptions from 'unplugin-vue-define-options/rollup';

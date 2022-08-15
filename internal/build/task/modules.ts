@@ -4,12 +4,10 @@ import commonjs from '@rollup/plugin-commonjs';
 import vue from '@vitejs/plugin-vue';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { buildConfigEntries, target } from '../build-info';
-import { epRoot, pkgRoot } from '@chili-ui/internal/src';
-// import { sync } from 'fast-glob'; // 同步查找文件
+import { epRoot, pkgRoot } from '@chili-ui/internal/build/utils';
 import type { OutputOptions } from 'rollup';
 import glob from 'fast-glob';
-import { writeBundles } from '@chili-ui/internal/src/utils/rollup';
-import { excludeFiles } from '@chili-ui/internal/src';
+import { writeBundles, excludeFiles } from '@chili-ui/internal/build/utils';
 import DefineOptions from 'unplugin-vue-define-options/rollup';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import esbuild from 'rollup-plugin-esbuild';

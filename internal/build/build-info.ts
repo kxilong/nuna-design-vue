@@ -1,6 +1,5 @@
 import path from 'path';
-import { PKG_NAME } from '@chili-ui/internal/src';
-import { buildOutput } from '@chili-ui/internal/src';
+import { PKG_NAME, buildOutput } from '@chili-ui/internal/build/utils';
 
 import type { ModuleFormat } from 'rollup';
 
@@ -13,12 +12,10 @@ export interface BuildInfo {
   output: {
     /** e.g: `es` */
     name: string;
-    /** e.g: `dist/element-plus/es` */
     path: string;
   };
 
   bundle: {
-    /** e.g: `element-plus/es` */
     path: string;
   };
 }

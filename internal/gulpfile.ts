@@ -1,6 +1,12 @@
 import { parallel, series } from 'gulp';
-import { withTaskName, run, runTask } from '@chili-ui/internal/src';
-import { buildOutput, epPackage, projRoot } from '@chili-ui/internal/src';
+import {
+  withTaskName,
+  run,
+  runTask,
+  buildOutput,
+  epPackage,
+  projRoot,
+} from '@chili-ui/internal/build/utils';
 import { copyFile } from 'fs/promises';
 import path from 'path';
 
@@ -36,4 +42,4 @@ export default series(
 );
 
 // 任务执行器 gulp 任务名 就会执行对应的任务
-export * from './src/task';
+export * from './build/task';

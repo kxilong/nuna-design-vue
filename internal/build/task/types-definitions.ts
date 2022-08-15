@@ -6,8 +6,13 @@ import * as vueCompiler from 'vue/compiler-sfc';
 import glob from 'fast-glob';
 import chalk from 'chalk';
 import { Project } from 'ts-morph';
-import { pkgRoot, projRoot, buildOutput, epRoot } from '@chili-ui/internal/src';
-import { excludeFiles } from '@chili-ui/internal/src';
+import {
+  pkgRoot,
+  projRoot,
+  buildOutput,
+  epRoot,
+  excludeFiles,
+} from '@chili-ui/internal/build/utils';
 
 import { pathRewriter } from '../utils';
 import type { CompilerOptions, SourceFile } from 'ts-morph';
