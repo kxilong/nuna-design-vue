@@ -1,5 +1,5 @@
 import path from 'path';
-import { PKG_NAME, buildOutput } from '@chili-ui/internal/build/utils';
+import { PKG_NAME, buildOutput } from '@nuna-ui/internal/build/utils';
 
 import type { ModuleFormat } from 'rollup';
 

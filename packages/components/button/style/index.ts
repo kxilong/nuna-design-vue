@@ -3,4 +3,4 @@
  * @date          2022-08-15 14:33:04
  * Copyright © YourCompanyName All rights reserved
  */
-import '@chili-ui/theme-chalk/src/color.less';
+import '@nuna-ui/theme-chalk/src/color.less';

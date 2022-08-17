@@ -12,7 +12,7 @@ import {
   buildOutput,
   epRoot,
   excludeFiles,
-} from '@chili-ui/internal/build/utils';
+} from '@nuna-ui/internal/build/utils';
 
 import { pathRewriter } from '../utils';
 import type { CompilerOptions, SourceFile } from 'ts-morph';
@@ -80,7 +80,7 @@ async function addSourceFiles(project: Project) {
 
   const globSourceFile = '**/*.{js?(x),ts?(x),vue}';
   const filePaths = excludeFiles(
-    await glob([globSourceFile, '!chili-ui/**/*'], {
+    await glob([globSourceFile, '!nuna-ui/**/*'], {
       cwd: pkgRoot,
       absolute: true,
       onlyFiles: true,

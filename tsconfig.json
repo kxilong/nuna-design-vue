@@ -26,6 +26,6 @@
     // 排除掉哪些类库
     "node_modules",
     "**/__tests__",
-    "chili-ui/**"
+    "nuna-ui/**"
   ]
 }

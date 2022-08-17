@@ -16,7 +16,7 @@
     "rootDir": ".",
     "types": [],
     "paths": {
-      "@chili-ui/*": ["packages/*"]
+      "@nuna-ui/*": ["packages/*"]
     }
   }
 }

@@ -6,7 +6,7 @@ import cleanCSS from 'gulp-clean-css';
 import rename from 'gulp-rename';
 import consola from 'consola';
 import chalk from 'chalk';
-import { buildOutput } from '@chili-ui/internal/src';
+import { buildOutput } from '@nuna-ui/internal/build/utils';
 
 const distFolder = path.resolve(__dirname, 'dist');
 const distBundle = path.resolve(buildOutput, 'theme-chalk');

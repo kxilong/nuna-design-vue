@@ -1,18 +1,17 @@
-import { series } from 'gulp';
+import glob from 'fast-glob';
 import { rollup } from 'rollup';
 import commonjs from '@rollup/plugin-commonjs';
 import vue from '@vitejs/plugin-vue';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import { buildConfigEntries, target } from '../build-info';
-import { epRoot, pkgRoot } from '@chili-ui/internal/build/utils';
+import { epRoot, pkgRoot } from '@nuna-ui/internal/build/utils';
 import type { OutputOptions } from 'rollup';
-import glob from 'fast-glob';
-import { writeBundles, excludeFiles } from '@chili-ui/internal/build/utils';
+import { writeBundles, excludeFiles } from '@nuna-ui/internal/build/utils';
 import DefineOptions from 'unplugin-vue-define-options/rollup';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 import esbuild from 'rollup-plugin-esbuild';
 
-const buildEachComponent = async () => {
+export const buildModules = async () => {
   const input = excludeFiles(
     await glob('**/*.{js,ts,vue}', {
       cwd: pkgRoot,
@@ -40,7 +39,7 @@ const buildEachComponent = async () => {
         },
       }),
     ],
-    external: id => /^vue/.test(id) || /^@chili-ui/.test(id), // 排除掉vue和@chili-ui的依赖
+    external: id => /^vue/.test(id) || /^@nuna-ui/.test(id), // 排除掉vue和@chili-ui的依赖
     treeshake: false,
   };
   const bundle = await rollup(config);
@@ -59,5 +58,3 @@ const buildEachComponent = async () => {
     }),
   );
 };
-
-export const buildModules = series(buildEachComponent);

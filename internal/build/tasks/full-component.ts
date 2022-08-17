@@ -4,9 +4,8 @@
 import { nodeResolve } from '@rollup/plugin-node-resolve'; // 处理文件路径
 import commonjs from '@rollup/plugin-commonjs'; // 将 CommonJS 模块转换为 ES6
 import vue from '@vitejs/plugin-vue';
-import { parallel } from 'gulp';
 import path from 'path';
-import { buildOutput, epRoot } from '@chili-ui/internal/build/utils';
+import { buildOutput, epRoot } from '@nuna-ui/internal/build/utils';
 import { rollup, OutputOptions } from 'rollup';
 import { target } from '../build-info';
 import DefineOptions from 'unplugin-vue-define-options/rollup';
@@ -14,7 +13,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 import esbuild, { minify as minifyPlugin } from 'rollup-plugin-esbuild';
 import type { Plugin } from 'rollup';
 
-const buildFull = async () => {
+export const buildFullComponent = async () => {
   // rollup 打包的配置信息
   const plugins: Plugin[] = [
     DefineOptions(),
@@ -60,7 +59,7 @@ const buildFull = async () => {
       format: 'umd', // 打包的格式
       file: path.resolve(buildOutput, 'dist/index.full.js'),
       exports: 'named', // 导出的名字 用命名的方式导出 libaryTarget:"" name:""
-      name: 'ChiliUI', // 全局变量名字
+      name: 'NunaUI', // 全局变量名字
       globals: {
         // 表示使用的vue是全局的
         vue: 'Vue',
@@ -80,5 +79,3 @@ const buildFull = async () => {
     }),
   );
 };
-// gulp适合流程控制和代码的转义  没有打包的功能
-export const buildFullComponent = parallel(buildFull);
