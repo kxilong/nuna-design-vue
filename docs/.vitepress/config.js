@@ -1,4 +1,5 @@
 export default {
+  baseUrl:'/nuna-ui/',
   themeConfig: {
     siteTitle: false,
     logo: '/logo.png',
