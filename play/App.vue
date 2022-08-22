@@ -1,5 +1,5 @@
 <template>
   <div>
-    <c-button />
+    <n-spin />
   </div>
 </template>

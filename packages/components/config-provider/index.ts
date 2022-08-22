@@ -1,6 +1,6 @@
 /**
  * @author        changan <740394554@qq.com>
- * @date          2022-08-15 14:33:04
+ * @date          2022-08-22 16:54:58
  * Copyright © YourCompanyName All rights reserved
  */
-import '@nuna-ui/theme-chalk/src/color.less';
+export type SizeType = 'small' | 'middle' | 'large' | undefined;
