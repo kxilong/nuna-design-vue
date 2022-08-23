@@ -1,77 +1,195 @@
-@import './color/colors';
+@import './themes/default';
+@import './mixins/index';
 
-.na-spin-spinning {
-  position: static;
-  display: inline-block;
-  opacity: 1;
-}
+@spin-prefix-cls: ~'@{na-prefix}-spin';
 
-.na-spin {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-size: 14px;
-  font-variant: tabular-nums;
-  line-height: 1.5715;
-  list-style: none;
-  font-feature-settings: 'tnum';
+.@{spin-prefix-cls} {
+  .reset-component();
+
   color: @blue-base;
   text-align: center;
   vertical-align: middle;
   transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
-  .na-spin-dot-spin {
-    transform: rotate(45deg);
-    animation: naRotate 1.2s infinite linear;
-  }
-  .na-spin-dot {
-    position: relative;
+
+  &-spinning{
+    position: static;
     display: inline-block;
-    font-size: 20px;
-    width: 20px;
-    height: 20px;
-  }
-  .na-spin-text {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    padding-top: 5px;
-    text-shadow: 0 1px 2px #fff;
+    opacity: 1;
   }
 
-  .na-spin-dot-item {
-    position: absolute;
-    display: block;
-    width: 9px;
-    height: 9px;
-    background-color: @blue-base;
-    border-radius: 100%;
-    transform: scale(0.75);
-    transform-origin: 50% 50%;
-    opacity: 0.3;
-    animation: naSpinMove 1s infinite linear alternate;
-    &:nth-child(1) {
+  // spinning status
+  &-nested-loading {
+    position: relative;
+    > div > .@{spin-prefix-cls} {
+      position: absolute;
       top: 0;
       left: 0;
+      z-index: 4;
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-height: 400px;
+      .@{spin-prefix-cls}-dot {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -10px;
+      }
     }
 
-    &:nth-child(2) {
-      top: 0;
-      right: 0;
-      animation-delay: 0.4s;
+
+    .@{spin-prefix-cls}-dot{
+      position: relative;
+      display: inline-block;
+      &-spin{
+        transform: rotate(45deg);
+        animation: naRotate 1.2s infinite linear;
+      }
     }
 
-    &:nth-child(3) {
-      right: 0;
-      bottom: 0;
-      animation-delay: 0.8s;
+    .@{spin-prefix-cls}-text{
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      padding-top: 5px;
+      text-shadow: 0 1px 2px #fff;
     }
 
-    &:nth-child(4) {
-      bottom: 0;
-      left: 0;
-      animation-delay: 1.2s;
+
+    .@{spin-prefix-cls}-container {
+      position: relative;
+      transition: opacity 0.3s;
+      &:after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+        display: none;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        opacity: 0;
+        transition: all 0.3s;
+        content: '';
+        pointer-events: none;
+      }
     }
-  }
+
+
+    .@{spin-prefix-cls}-blur {
+      clear: both;
+      opacity: 0.5;
+      user-select: none;
+      pointer-events: none;
+      &:after {
+        opacity: 0.4;
+        pointer-events: auto;
+      }
+    }
+
+
+
+    .@{spin-prefix-cls}-dot-item {
+      position: absolute;
+      display: block;
+      background-color: @blue-base;
+      border-radius: 100%;
+      transform: scale(0.75);
+      transform-origin: 50% 50%;
+      opacity: 0.3;
+      animation: naSpinMove 1s infinite linear alternate;
+      &:nth-child(1) {
+        top: 0;
+        left: 0;
+      }
+
+      &:nth-child(2) {
+        top: 0;
+        right: 0;
+        animation-delay: 0.4s;
+      }
+
+      &:nth-child(3) {
+        right: 0;
+        bottom: 0;
+        animation-delay: 0.8s;
+      }
+
+      &:nth-child(4) {
+        bottom: 0;
+        left: 0;
+        animation-delay: 1.2s;
+      }
+    }
+
+    // small
+      > div > .@{spin-prefix-cls}-small{
+        .@{spin-prefix-cls}-dot {
+          .square(14px);
+          font-size: 14px;
+          margin: -7px;
+
+          .@{spin-prefix-cls}-dot-item {
+            .square(6px)
+          }
+        }
+      }
+
+      > div > .@{spin-prefix-cls}-small.@{spin-prefix-cls}-show-text{
+        .@{spin-prefix-cls}-dot {
+          margin-top: -17px;
+        }
+        .@{spin-prefix-cls}-text {
+          padding-top: 2px;
+        }
+      }
+
+      // middle
+      > div > .@{spin-prefix-cls}-middle{
+        .@{spin-prefix-cls}-dot {
+          .square(20px);
+          font-size: 20px;
+          margin: -10px;
+
+          .@{spin-prefix-cls}-dot-item {
+            .square(9px)
+          }
+        }
+      }
+
+      > div > .@{spin-prefix-cls}-middle.@{spin-prefix-cls}-show-text{
+        .@{spin-prefix-cls}-dot {
+          margin-top: -20px;
+        }
+        .@{spin-prefix-cls}-text {
+          padding-top: 5px;
+        }
+      }
+
+      // large
+      > div > .@{spin-prefix-cls}-large{
+        .@{spin-prefix-cls}-dot {
+          .square(32px);
+          font-size: 32px;
+          margin: -16px;
+
+          .@{spin-prefix-cls}-dot-item {
+            .square(14px)
+          }
+        }
+      }
+
+      > div > .@{spin-prefix-cls}-large.@{spin-prefix-cls}-show-text{
+        .@{spin-prefix-cls}-dot {
+          margin-top: -26px;
+        }
+        .@{spin-prefix-cls}-text {
+          padding-top: 11px;
+        }
+      }
+    }
 }
 
 @keyframes naSpinMove {
@@ -84,60 +202,4 @@
   to {
     transform: rotate(405deg);
   }
-}
-
-// loading状态下
-.na-spin-nested-loading {
-  position: relative;
-  .na-spin {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 4;
-    display: block;
-    width: 100%;
-    height: 100%;
-    max-height: 400px;
-    .na-spin-dot {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin: -10px;
-      margin-top: -20px;
-    }
-  }
-}
-
-.na-spin-container {
-  position: relative;
-  transition: opacity 0.3s;
-}
-
-.na-spin-container:after {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 10;
-  display: none;
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  opacity: 0;
-  transition: all 0.3s;
-  content: '';
-  pointer-events: none;
-}
-
-.na-spin-blur {
-  clear: both;
-  opacity: 0.5;
-  user-select: none;
-  pointer-events: none;
-}
-
-.na-spin-blur:after {
-  opacity: 0.4;
-  pointer-events: auto;
 }
