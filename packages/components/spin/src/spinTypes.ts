@@ -3,7 +3,7 @@
  * @date          2022-08-22 16:42:27
  * Copyright © YourCompanyName All rights reserved
  */
-import PropTypes from '@nuna-ui/utils/vue-types';
+import PropTypes from 'vue-types';
 import { SizeType } from '@nuna-ui/components/config-provider';
 import { ExtractPropTypes, PropType } from 'vue';
 
@@ -13,6 +13,7 @@ const spinProps = {
     type: String as PropType<SizeType>,
   },
   spinning: PropTypes.bool,
+  delay: PropTypes.number,
 };
 
 export type SpinProps = Partial<ExtractPropTypes<typeof spinProps>>;

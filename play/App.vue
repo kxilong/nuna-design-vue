@@ -1,5 +1,44 @@
 <template>
-  <div>
-    <n-spin />
-  </div>
+  <n-spin :spinning="spinning" tip="Loading..." size="small" :delay="delayTime">
+    <div class="example">Further details about the context of this alert.</div>
+  </n-spin>
+  <button @click="changeSpinning">切换</button>
 </template>
+<script lang="ts">
+import { defineComponent, ref } from 'vue';
+export default defineComponent({
+  setup() {
+    const spinning = ref<boolean>(true);
+    const delayTime = 3000;
+
+    const changeSpinning = () => {
+      spinning.value = !spinning.value;
+    };
+
+    return {
+      spinning,
+      changeSpinning,
+      delayTime,
+    };
+  },
+});
+</script>
+<style>
+body {
+  padding: 0;
+  margin: 0;
+}
+.spin-state {
+  margin-top: 16px;
+}
+
+.example {
+  text-align: center;
+  background: #e6f7ff;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 30px 50px;
+  margin: 20px 0;
+  color: #000000d9;
+}
+</style>

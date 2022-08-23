@@ -1,0 +1,143 @@
+@import './color/colors';
+
+.na-spin-spinning {
+  position: static;
+  display: inline-block;
+  opacity: 1;
+}
+
+.na-spin {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  list-style: none;
+  font-feature-settings: 'tnum';
+  color: @blue-base;
+  text-align: center;
+  vertical-align: middle;
+  transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+  .na-spin-dot-spin {
+    transform: rotate(45deg);
+    animation: naRotate 1.2s infinite linear;
+  }
+  .na-spin-dot {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
+  .na-spin-text {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    padding-top: 5px;
+    text-shadow: 0 1px 2px #fff;
+  }
+
+  .na-spin-dot-item {
+    position: absolute;
+    display: block;
+    width: 9px;
+    height: 9px;
+    background-color: @blue-base;
+    border-radius: 100%;
+    transform: scale(0.75);
+    transform-origin: 50% 50%;
+    opacity: 0.3;
+    animation: naSpinMove 1s infinite linear alternate;
+    &:nth-child(1) {
+      top: 0;
+      left: 0;
+    }
+
+    &:nth-child(2) {
+      top: 0;
+      right: 0;
+      animation-delay: 0.4s;
+    }
+
+    &:nth-child(3) {
+      right: 0;
+      bottom: 0;
+      animation-delay: 0.8s;
+    }
+
+    &:nth-child(4) {
+      bottom: 0;
+      left: 0;
+      animation-delay: 1.2s;
+    }
+  }
+}
+
+@keyframes naSpinMove {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes naRotate {
+  to {
+    transform: rotate(405deg);
+  }
+}
+
+// loading状态下
+.na-spin-nested-loading {
+  position: relative;
+  .na-spin {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-height: 400px;
+    .na-spin-dot {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -10px;
+      margin-top: -20px;
+    }
+  }
+}
+
+.na-spin-container {
+  position: relative;
+  transition: opacity 0.3s;
+}
+
+.na-spin-container:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  opacity: 0;
+  transition: all 0.3s;
+  content: '';
+  pointer-events: none;
+}
+
+.na-spin-blur {
+  clear: both;
+  opacity: 0.5;
+  user-select: none;
+  pointer-events: none;
+}
+
+.na-spin-blur:after {
+  opacity: 0.4;
+  pointer-events: auto;
+}
