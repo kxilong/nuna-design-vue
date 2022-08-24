@@ -11,6 +11,7 @@ const spinProps = {
   tip: PropTypes.string,
   size: {
     type: String as PropType<SizeType>,
+    default: 'middle',
   },
   spinning: PropTypes.bool,
   delay: PropTypes.number,

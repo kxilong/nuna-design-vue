@@ -1,8 +1,9 @@
 <template>
-  <n-spin :spinning="spinning" tip="Loading..." size="small" :delay="delayTime">
+  <n-spin :spinning="spinning" size="small" :delay="delayTime">
     <div class="example">Further details about the context of this alert.</div>
   </n-spin>
   <button @click="changeSpinning">切换</button>
+  -->
 </template>
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
