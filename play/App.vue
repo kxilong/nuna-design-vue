@@ -1,15 +1,15 @@
 <template>
-    <n-spin :spinning="spinning" size="small" :delay="delayTime">
+    <n-spin :spinning="spinning" tip="Loading..." size="small" :delay="delayTime">
         <div class="example">Further details about the context of this alert.</div>
     </n-spin>
+    <!-- <n-spin :spinning="spinning" tip="Loading..." size="small" :delay="delayTime" /> -->
     <button @click="changeSpinning">切换</button>
-    -->
 </template>
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 export default defineComponent({
     setup() {
-        const spinning = ref<boolean>(true);
+        const spinning = ref<boolean>(false);
         const delayTime = 3000;
 
         const changeSpinning = () => {
@@ -26,8 +26,13 @@ export default defineComponent({
 </script>
 <style>
 body {
-    padding: 0;
     margin: 0;
+    color: rgb(0 0 0 / 85%);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    background-color: #fff;
+    padding: 20px;
 }
 .spin-state {
     margin-top: 16px;

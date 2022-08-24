@@ -17,6 +17,85 @@
         opacity: 1;
     }
 
+    &-dot{
+        position: relative;
+        display: inline-block;
+        &-spin{
+            transform: rotate(45deg);
+            animation: spin-rotate 1.2s infinite linear;
+        }
+    }
+
+
+    // small
+    &-small{
+        .@{spin-prefix-cls}-dot {
+            .square(14px);
+            font-size: 14px;
+
+            .@{spin-prefix-cls}-dot-item {
+                .square(6px)
+            }
+        }
+    }
+
+    // middle
+    &-middle{
+        .@{spin-prefix-cls}-dot {
+            .square(20px);
+            font-size: 20px;
+
+            .@{spin-prefix-cls}-dot-item {
+                .square(9px)
+            }
+        }
+    }
+
+    // large
+    &-large{
+        .@{spin-prefix-cls}-dot {
+            .square(32px);
+            font-size: 32px;
+
+            .@{spin-prefix-cls}-dot-item {
+                .square(14px)
+            }
+        }
+    }
+
+    &-dot-item {
+        position: absolute;
+        display: block;
+        background-color: @blue-base;
+        border-radius: 100%;
+        transform: scale(0.75);
+        transform-origin: 50% 50%;
+        opacity: 0.3;
+        animation: spin-move 1s infinite linear alternate;
+        &:nth-child(1) {
+            top: 0;
+            left: 0;
+        }
+
+        &:nth-child(2) {
+            top: 0;
+            right: 0;
+            animation-delay: 0.4s;
+        }
+
+        &:nth-child(3) {
+            right: 0;
+            bottom: 0;
+            animation-delay: 0.8s;
+        }
+
+        &:nth-child(4) {
+            bottom: 0;
+            left: 0;
+            animation-delay: 1.2s;
+        }
+    }
+
     // spinning status
     &-nested-loading {
         position: relative;
@@ -37,16 +116,6 @@
             }
         }
 
-
-        .@{spin-prefix-cls}-dot{
-            position: relative;
-            display: inline-block;
-            &-spin{
-                transform: rotate(45deg);
-                animation: spin-rotate 1.2s infinite linear;
-            }
-        }
-
         .@{spin-prefix-cls}-text{
             position: absolute;
             top: 50%;
@@ -54,7 +123,6 @@
             padding-top: 5px;
             text-shadow: 0 1px 2px #fff;
         }
-
 
         .@{spin-prefix-cls}-container {
             position: relative;
@@ -77,7 +145,6 @@
             }
         }
 
-
         .@{spin-prefix-cls}-blur {
             clear: both;
             opacity: 0.5;
@@ -89,46 +156,9 @@
             }
         }
 
-
-
-        .@{spin-prefix-cls}-dot-item {
-            position: absolute;
-            display: block;
-            background-color: @blue-base;
-            border-radius: 100%;
-            transform: scale(0.75);
-            transform-origin: 50% 50%;
-            opacity: 0.3;
-            animation: spin-move 1s infinite linear alternate;
-            &:nth-child(1) {
-                top: 0;
-                left: 0;
-            }
-
-            &:nth-child(2) {
-                top: 0;
-                right: 0;
-                animation-delay: 0.4s;
-            }
-
-            &:nth-child(3) {
-                right: 0;
-                bottom: 0;
-                animation-delay: 0.8s;
-            }
-
-            &:nth-child(4) {
-                bottom: 0;
-                left: 0;
-                animation-delay: 1.2s;
-            }
-        }
-
         // small
         > div > .@{spin-prefix-cls}-small{
             .@{spin-prefix-cls}-dot {
-                .square(14px);
-                font-size: 14px;
                 margin: -7px;
 
                 .@{spin-prefix-cls}-dot-item {
@@ -149,8 +179,6 @@
         // middle
         > div > .@{spin-prefix-cls}-middle{
             .@{spin-prefix-cls}-dot {
-                .square(20px);
-                font-size: 20px;
                 margin: -10px;
 
                 .@{spin-prefix-cls}-dot-item {
@@ -171,8 +199,6 @@
         // large
         > div > .@{spin-prefix-cls}-large{
             .@{spin-prefix-cls}-dot {
-                .square(32px);
-                font-size: 32px;
                 margin: -16px;
 
                 .@{spin-prefix-cls}-dot-item {
@@ -192,6 +218,7 @@
     }
 }
 
+/** @keyframes **/
 @keyframes spin-move {
     to {
         opacity: 1;
