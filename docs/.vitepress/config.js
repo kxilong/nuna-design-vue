@@ -1,13 +1,14 @@
 export default {
-  base:'/nuna-ui/',
+  base: '/nuna-ui/',
+  head: [['link', { rel: 'icon', type: 'image/svg+xml', href: 'logo.svg' }]],
   themeConfig: {
-    siteTitle: false,
-    logo: '/logo.png',
+    siteTitle: 'Nuna-ui',
+    logo: '/logo.svg',
     nav: [
       { text: '指南', link: '/guild/installation' },
       { text: '组件', link: '/examples/button/' },
     ],
-    socialLinks: [{ icon: 'github', link: 'https://gitee.com/geeksdidi' }],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/kxilong/nuna-ui' }],
     sidebar: {
       '/guild/': [
         {
