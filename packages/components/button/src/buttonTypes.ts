@@ -6,9 +6,9 @@
 import { SizeType } from '../../config-provider';
 import { ExtractPropTypes, PropType } from 'vue';
 
-type buttonTypes = 'primary' | 'ghost' | 'dashed' | 'link' | 'text' | 'default';
+type buttonTypes = 'primary' | 'dashed' | 'link' | 'text' | 'default' | 'warning' | 'success';
 
-const buttonProps = {
+export const buttonProps = {
     size: {
         type: String as PropType<SizeType>,
         default: 'middle',
@@ -19,6 +19,11 @@ const buttonProps = {
     },
 };
 
+export const buttonEmits = {
+    click: (evt: MouseEvent) => evt instanceof MouseEvent,
+};
+
 export type ButtonProps = Partial<ExtractPropTypes<typeof buttonProps>>;
+export type ButtonEmits = typeof buttonEmits;
 
 export default buttonProps;

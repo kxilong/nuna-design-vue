@@ -1,19 +1,27 @@
 <template>
-    <button :class="[`${prefixCls}`, `${prefixCls}-${type}`, `${prefixCls}-${size}`]" type="button">
-        <span v-if="$slots?.default"><slot /></span>
-        <div aria-hidden="true" :class="['n-base-wave']"></div>
+    <button
+        :class="[`${prefixCls}`, `${prefixCls}-${type}`, `${prefixCls}-${size}`]"
+        type="button"
+        @click="handleClick"
+    >
+        <span v-if="$slots?.default" class="n-base-content"><slot /></span>
     </button>
 </template>
 
 <script lang="ts" setup>
 import { defineOptions } from 'vue';
-import buttonProps from './buttonTypes';
 import useConfigInject from '@nuna-ui/utils/hooks/useConfigInject';
+import { buttonEmits, buttonProps } from './buttonTypes';
 
 defineOptions({
     name: 'NButton',
 });
 
-defineProps(buttonProps);
+const props = defineProps(buttonProps);
+const emit = defineEmits(buttonEmits);
 const { prefixCls } = useConfigInject('button');
+console.log(props);
+const handleClick = (evt: MouseEvent) => {
+    emit('click', evt);
+};
 </script>

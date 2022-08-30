@@ -15,10 +15,51 @@
     outline: none;
     position: relative;
     width: initial;
-    border: none;
     cursor: pointer;
     border-radius: 3px;
     text-align: center;
+    transition: 0.2s all;
+    border: 1px solid transparent;
+
+    &[disabled], &[disabled]:hover {
+        color: #00000040;
+        border-color: #d9d9d9;
+        background: #f5f5f5;
+        text-shadow: none;
+        box-shadow: none;
+        cursor: not-allowed;
+        filter: none;
+    }
+
+    &-link[disabled], &-link[disabled]:hover {
+        color: #00000040;
+        text-shadow: none;
+        box-shadow: none;
+        cursor: not-allowed;
+        filter: none;
+        border: none;
+        background-color: transparent;
+    }
+
+    &-text[disabled], &-text[disabled]:hover {
+        color: #00000040;
+        text-shadow: none;
+        box-shadow: none;
+        cursor: not-allowed;
+        filter: none;
+        border: none;
+        background-color: transparent;
+    }
+
+    &[disabled]:active {
+        transform: initial;
+        box-shadow: none
+    }
+
+    &:active{
+        transform: scale(0.98);
+        box-shadow: 0 5px 10px rgb(0 0 0 / 20%)
+    }
 
     &-middle {
         height: 32px;
@@ -26,22 +67,121 @@
         font-size: 14px;
     }
 
+
+    &-link:active, &-text:active {
+        transform: initial;
+        box-shadow: none
+    }
+
+    // type = link
+    &-link {
+        color: @primary-color;
+        border-color: transparent;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    &-link[disabled]:active {
+        transform: initial;
+        box-shadow: none
+    }
+
+    // type = dashed
+    &-dashed {
+        color: #000000d9;
+        background: @white;
+        box-shadow: 0 2px #00000004;
+        border:1px dashed transparent;
+        border-color:@border-color;
+    }
+
+    &-dashed:hover {
+        border-color: @primary-color;
+        color: @primary-color;
+    }
+
+    // type = default
+    &-default {
+        color: #000000d9;
+        background: @white;
+        box-shadow: 0 2px #00000004;
+        border:1px solid transparent;
+        border-color:@border-color;
+    }
+
+    &-default:hover {
+        border-color: @primary-color;
+        color: @primary-color;
+    }
+
+    // type = primary
     &-primary {
-        color: #fff;
+        color: @white;
         border-color: @primary-color;
         background: @primary-color;
         box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
     }
 
-    &-primary:not(&--disabled):hover {
-        background-color: @primary-color-hover;
+    &-primary:hover {
+        filter: brightness(1.1);
     }
 
-    &-primary:not(&--disabled):active {
-        background-color: @primary-color-foucs;
+    &-primary:active {
+        filter: brightness(.9);
     }
 
-    .n-base-wave{
-        color: red;
+    // type = success
+    &-success {
+        color: @white;
+        border-color: @green-base;
+        background: @green-base;
+        box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
+    }
+
+    &-success:hover {
+        background: @success-color-hover;
+    }
+
+    &-success:active {
+        background: @success-color-pressed;
+    }
+
+    // type = warning
+    &-warning {
+        color: @white;
+        border-color: @warning-color;
+        background: @warning-color;
+        box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
+    }
+
+    &-warning:hover {
+        background: @warning-color-hover;
+    }
+
+    &-warning:active {
+        background: @warning-color-pressed;
+    }
+
+    // type = error
+    &-error {
+        color: @white;
+        border-color: @error-color;
+        background: @error-color;
+        box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
+    }
+
+    &-error:hover {
+        background: @error-color-hover;
+    }
+
+    &-error:active {
+        background: @error-color-pressed;
+    }
+
+    .n-base-content{
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        min-width: 0;
     }
 }
