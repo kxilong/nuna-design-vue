@@ -1,0 +1,47 @@
+/*
+ * @author        changan <740394554@qq.com>
+ * @date          2022-08-30 10:54:56
+ * Copyright © YourCompanyName All rights reserved
+ */
+@import './mixins/index';
+@import './themes/default';
+
+@button-prefix-cls: ~'@{na-prefix}-button';
+
+
+.@{button-prefix-cls} {
+    .reset-component();
+
+    outline: none;
+    position: relative;
+    width: initial;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    text-align: center;
+
+    &-middle {
+        height: 32px;
+        padding: 4px 15px;
+        font-size: 14px;
+    }
+
+    &-primary {
+        color: #fff;
+        border-color: @primary-color;
+        background: @primary-color;
+        box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
+    }
+
+    &-primary:not(&--disabled):hover {
+        background-color: @primary-color-hover;
+    }
+
+    &-primary:not(&--disabled):active {
+        background-color: @primary-color-foucs;
+    }
+
+    .n-base-wave{
+        color: red;
+    }
+}

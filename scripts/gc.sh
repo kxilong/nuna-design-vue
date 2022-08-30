@@ -46,7 +46,6 @@ export default defineComponent({
   },
 });
 </script>
-<style></style>
 EOF
 
 cat <<EOF >"$DIRNAME/index.ts"

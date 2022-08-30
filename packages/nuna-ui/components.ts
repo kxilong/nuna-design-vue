@@ -4,6 +4,7 @@
  * Copyright © YourCompanyName All rights reserved
  */
 import { NSpin } from '@nuna-ui/components/spin';
+import { NButton } from '@nuna-ui/components/button';
 import { Plugin } from 'vue';
 
-export default [NSpin] as Plugin[];
+export default [NSpin, NButton] as Plugin[];
