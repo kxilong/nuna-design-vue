@@ -36,15 +36,16 @@ cat > $DIRNAME/src/index.vue <<EOF
     <slot></slot>
   </div>
 </template>
-<script lang='ts'>
-import { defineComponent } from 'vue';
-export default defineComponent({
-  name: 'N${NAME}',
-  props: {},
-  setup(props) {
-    // init here
-  },
+<script lang="ts" setup>
+import { defineOptions } from 'vue';
+import useConfigInject from '@nuna-ui/utils/hooks/useConfigInject';
+
+defineOptions({
+    name: N${NAME},
 });
+
+const { prefixCls } = useConfigInject(${NAME});
+
 </script>
 EOF
 
