@@ -3,14 +3,14 @@
  * @date          2022-08-31 16:50:29
  * Copyright © YourCompanyName All rights reserved
  */
- @import './mixins/index';
- @import './themes/default';
+@import './mixins/index';
+@import './themes/default';
 
- @avator-prefix-cls: ~'@{na-prefix}-avatar';
+@avator-prefix-cls: ~'@{na-prefix}-avatar';
 
 
- .@{avator-prefix-cls} {
-     .reset-component();
+.@{avator-prefix-cls} {
+    .reset-component();
 
     width: 32px;
     height: 32px;
@@ -18,6 +18,8 @@
     border-radius: 50%;
     display: inline-block;
     background:@bg-ccc;
+    vertical-align: middle;
+    overflow: hidden;
 
     .anticon {
         display: inline-block;
@@ -30,17 +32,16 @@
         text-rendering: optimizelegibility;
         -webkit-font-smoothing: antialiased;
     }
-     &-image{
+    &-image{
         background: transparent;
-     }
+    }
 
-     &>img{
+    &>img{
         display: block;
         width: 100%;
         height: 100%;
-        -o-object-fit: cover;
         object-fit: cover;
-     }
+    }
 
 
     //  size:middle
@@ -70,9 +71,9 @@
         border-radius: 2px;
     }
 
- }
+}
 
- img{
+img{
     vertical-align: middle;
     border-style: none;
- }
+}

@@ -1,5 +1,6 @@
 <template>
     <span
+        v-if="src || $slots?.icon"
         :class="[
             `${prefixCls}`,
             `${prefixCls}-${size}`,
@@ -8,7 +9,7 @@
         ]"
         :style="computedStyle"
     >
-        <img v-if="src" :src="src" />
+        <img v-if="src" :src="src" :onerror="errorHandler" />
         <span v-else-if="$slots?.icon" class="anticon">
             <slot name="icon"></slot>
         </span>
@@ -25,7 +26,7 @@ defineOptions({
 });
 
 const props = defineProps(avatorProps);
-defineEmits(avatorEmits);
+const emit = defineEmits(avatorEmits);
 const { prefixCls } = useConfigInject('avatar');
 
 const computedStyle = computed(() => {
@@ -37,4 +38,9 @@ const computedStyle = computed(() => {
     }
     return '';
 });
+
+// loading fail callback
+const errorHandler = e => {
+    emit('error', e);
+};
 </script>
