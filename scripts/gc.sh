@@ -41,10 +41,10 @@ import { defineOptions } from 'vue';
 import useConfigInject from '@nuna-ui/utils/hooks/useConfigInject';
 
 defineOptions({
-    name: N${NAME},
+    name: 'N${NAME}',
 });
 
-const { prefixCls } = useConfigInject(${NAME});
+const { prefixCls } = useConfigInject(${name});
 
 </script>
 EOF
