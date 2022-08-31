@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, defineOptions } from 'vue';
+import { computed } from 'vue';
 import useConfigInject from '@nuna-ui/utils/hooks/useConfigInject';
 import { avatorEmits, avatorProps } from './avatorTypes';
 

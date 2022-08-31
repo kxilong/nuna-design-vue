@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, defineOptions, Text, useSlots } from 'vue';
+import { computed, Text, useSlots } from 'vue';
 import useConfigInject from '@nuna-ui/utils/hooks/useConfigInject';
 import { buttonEmits, buttonProps } from './buttonTypes';
 

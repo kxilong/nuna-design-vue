@@ -30,7 +30,7 @@
 
 <script lang="ts" setup>
 import useConfigInject from '@nuna-ui/utils/hooks/useConfigInject';
-import { ref, onMounted, onUpdated, nextTick, defineOptions, onUnmounted } from 'vue';
+import { ref, onMounted, onUpdated, nextTick, onUnmounted } from 'vue';
 import spinProps from './spinTypes';
 import debounce from 'lodash-es/debounce';
 

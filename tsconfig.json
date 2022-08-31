@@ -6,6 +6,7 @@
     "removeComments": true, // 删除注释
     "moduleResolution": "node", // 按照node模块来解析
     "esModuleInterop": true, // 支持es6,commonjs模块
+    "types": ["unplugin-vue-define-options"],
     "jsx": "preserve", // jsx 不转
     "noLib": false, // 不处理类库
     "target": "es6", // 遵循es6版本
@@ -27,5 +28,5 @@
     "node_modules",
     "**/__tests__",
     "nuna-ui/**"
-  ]
+  ],
 }
