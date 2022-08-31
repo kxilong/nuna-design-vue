@@ -5,33 +5,48 @@ component:     button
 Copyright © YourCompanyName All rights reserved
 -->
 <template>
-    <n-button @click="handleClick" style="margin-right: 10px">切换11111111111111</n-button>
-    <n-button type="primary" @click="handleClick" style="margin-right: 10px">
-        切换11111111111111
-    </n-button>
-    <n-button type="warning" @click="handleClick" style="margin-right: 10px">
-        切换11111111111111
-    </n-button>
-    <n-button type="success" @click="handleClick" style="margin-right: 10px">
-        切换11111111111111
-    </n-button>
-    <n-button type="dashed" @click="handleClick" style="margin-right: 10px">
-        切换11111111111111
-    </n-button>
-    <n-button type="text" @click="handleClick" style="margin-right: 10px">text</n-button>
-    <n-button type="link" @click="handleClick" style="margin-right: 10px">link</n-button>
-    <n-button type="error" @click="handleClick">切换11111111111111</n-button>
+    <div :style="{ background: 'rgb(190, 200, 200)', padding: '26px 16px 16px' }">
+        <n-button @click="handleClick" block :loading="true">切换11111111111111</n-button>
+        <br />
+        <n-button type="primary" @click="handleClick" :loading="loading" block>
+            <template #icon>
+                <lightning theme="outline" size="14" fill="#fff" strokeLinecap="square" />
+            </template>
+            切换11111111111111
+        </n-button>
+        <br />
+        <n-button type="warning" @click="handleClick" block>切换11111111111111</n-button>
+        <br />
+        <n-button type="success" @click="handleClick" block>切换11111111111111</n-button>
+        <br />
+        <n-button type="dashed" @click="handleClick" block>切换11111111111111</n-button>
+        <br />
+        <n-button type="text" @click="handleClick" block>text</n-button>
+        <br />
+        <n-button type="link" @click="handleClick" block>link</n-button>
+        <br />
+        <n-button type="error" @click="handleClick" shape="round">切换</n-button>
+    </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
+import { Lightning } from '@icon-park/vue-next';
 export default defineComponent({
+    components: {
+        Lightning,
+    },
     setup() {
-        const handleClick = e => {
-            console.log(e);
+        let loading = ref(false);
+        const handleClick = () => {
+            loading.value = true;
+            setTimeout(() => {
+                loading.value = false;
+            }, 3000);
         };
 
         return {
             handleClick,
+            loading,
         };
     },
 });

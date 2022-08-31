@@ -11,5 +11,8 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.3",
     "vite": "^2.9.9"
+  },
+  "dependencies": {
+    "@icon-park/vue-next": "^1.4.2"
   }
 }

@@ -1,6 +1,6 @@
 /*
- * @author        changan <740394554@qq.com>
- * @date          2022-08-30 10:54:56
+ * @author        lison <740394554@qq.com>
+ * @date          2022-08-08 21:25:36
  * Copyright © YourCompanyName All rights reserved
  */
 @import './mixins/index';
@@ -31,14 +31,36 @@
         filter: none;
     }
 
-    &-link[disabled], &-link[disabled]:hover {
-        color: #00000040;
-        text-shadow: none;
-        box-shadow: none;
-        cursor: not-allowed;
-        filter: none;
-        border: none;
+    &[block] {
+        width: 100%;
+    }
+
+    &>span {
+        display: inline-block;
+    }
+
+    &>.anticon+span,&>span+.anticon {
+        margin-left: 8px
+    }
+
+    .anticon {
+        display: inline-block;
+        line-height: 0;
+        font-style: normal;
+        text-align: center;
+        text-transform: none;
+        vertical-align: -0.125em;
+        text-rendering: optimizelegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    &-text {
         background-color: transparent;
+    }
+
+    &-text:hover {
+        background-color: #f5f5f5;
     }
 
     &-text[disabled], &-text[disabled]:hover {
@@ -67,6 +89,17 @@
         font-size: 14px;
     }
 
+    &-small {
+        height: 24px;
+        padding: 0 7px;
+        font-size: 14px;
+    }
+
+    &-large {
+        height: 40px;
+        padding: 6.4px 15px;
+        font-size: 16px;
+    }
 
     &-link:active, &-text:active {
         transform: initial;
@@ -84,6 +117,16 @@
     &-link[disabled]:active {
         transform: initial;
         box-shadow: none
+    }
+
+    &-link[disabled], &-link[disabled]:hover {
+        color: #00000040;
+        text-shadow: none;
+        box-shadow: none;
+        cursor: not-allowed;
+        filter: none;
+        border: none;
+        background-color: transparent;
     }
 
     // type = dashed
@@ -178,10 +221,60 @@
         background: @error-color-pressed;
     }
 
-    .n-base-content{
-        display: flex;
-        align-items: center;
-        flex-wrap: nowrap;
-        min-width: 0;
+
+    // loading
+    &-loading:before {
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        bottom: -1px;
+        left: -1px;
+        z-index: 1;
+        // display: none;
+        background: #fff;
+        border-radius: inherit;
+        opacity: .35;
+        transition: opacity .2s;
+        content: "";
+        pointer-events: none;
+    }
+    &-loading {
+        cursor: default;
+        &-icon {
+            .anticon {
+                padding-right: 8px;
+            }
+            .anticon-spin{
+                animation:  loadingCircle  1s infinite linear;
+            }
+        }
+    }
+
+    // shape
+    &-circle{
+        min-width: 32px;
+        padding-right: 0;
+        padding-left: 0;
+        text-align: center;
+        border-radius: 50%;
+    }
+    &-round{
+        height: 32px;
+        padding: 4px 16px;
+        font-size: 14px;
+        border-radius: 32px;
+    }
+
+    // 文字空格
+    .expand{
+        letter-spacing: 0.3em;
+        margin-right: -0.3em;
+    }
+}
+
+
+@keyframes loadingCircle {
+    to {
+        transform: rotate(360deg)
     }
 }

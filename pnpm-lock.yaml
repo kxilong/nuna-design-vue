@@ -148,8 +148,11 @@ importers:
 
   play:
     specifiers:
+      '@icon-park/vue-next': ^1.4.2
       '@vitejs/plugin-vue': ^2.3.3
       vite: ^2.9.9
+    dependencies:
+      '@icon-park/vue-next': 1.4.2
     devDependencies:
       '@vitejs/plugin-vue': registry.npmmirror.com/@vitejs/plugin-vue/2.3.4_vite@2.9.15
       vite: registry.npmmirror.com/vite/2.9.15
@@ -184,6 +187,13 @@ packages:
     os: [linux]
     requiresBuild: true
     optional: true
+
+  /@icon-park/vue-next/1.4.2:
+    resolution: {integrity: sha512-+QklF255wkfBOabY+xw6FAI0Bwln/RhdwCunNy/9sKdKuChtaU67QZqU67KGAvZUTeeBgsL+yaHHxqfQeGZXEQ==}
+    engines: {node: '>= 8.0.0', npm: '>= 5.0.0'}
+    peerDependencies:
+      vue: 3.x
+    dev: false
 
   /errno/0.1.8:
     resolution: {integrity: sha512-dJ6oBr5SQ1VSd9qkk7ByRgb/1SH4JZjCHSW/mr63/QcXO9zLVxvJ6Oy13nio03rxpSnVDDjFor75SjVeZWPW/A==}
@@ -4601,6 +4611,7 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
+    dev: false
     optional: true
 
   registry.npmmirror.com/function-bind/1.1.1:
@@ -8723,7 +8734,7 @@ packages:
       resolve: registry.npmmirror.com/resolve/1.22.1
       rollup: registry.npmmirror.com/rollup/2.77.3
     optionalDependencies:
-      fsevents: registry.npmmirror.com/fsevents/2.3.2
+      fsevents: 2.3.2
     dev: true
 
   registry.npmmirror.com/vite/2.9.15_less@4.1.3:
