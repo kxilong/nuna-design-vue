@@ -22,7 +22,6 @@ export const buttonProps = {
     loading: PropTypes.bool,
     shape: {
         type: String as PropType<shapeTypes>,
-        default: 'default',
     },
     autoInsertSpace: PropTypes.bool,
 };
