@@ -4,7 +4,7 @@
             `${prefixCls}`,
             `${prefixCls}-${type}`,
             `${prefixCls}-${size}`,
-            `${prefixCls}-${shape}`,
+            shape && `${prefixCls}-${shape}`,
             loading && `${prefixCls}-loading`,
         ]"
         type="button"
