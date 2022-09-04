@@ -2,7 +2,8 @@
     <!-- <spin /> -->
     <!-- <NButton /> -->
     <!-- <NAvatar /> -->
-    <NSpace />
+    <!-- <NSpace /> -->
+    <NDivider />
 </template>
 
 <script lang="ts" setup>
@@ -10,7 +11,8 @@
 // import NButton from './examples/button.vue';
 // import NAvatar from './examples/avatar.vue';
 // import NBadge from './examples/badge.vue';
-import NSpace from './examples/space.vue';
+// import NSpace from './examples/space.vue';
+import NDivider from './examples/divider.vue';
 </script>
 
 <style>

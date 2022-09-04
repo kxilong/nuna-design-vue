@@ -1,0 +1,93 @@
+@import './mixins/index';
+@import './themes/default';
+
+@divider-prefix-cls: ~'@{na-prefix}-divider';
+
+
+.@{divider-prefix-cls} {
+    .reset-component();
+
+
+    font-size: 14px;
+    color: #000000d9;
+    border-top: 1px solid rgb(0 0 0 / 6%);
+
+    &-horizontal{
+        display: flex;
+        clear: both;
+        width: 100%;
+        min-width: 100%;
+        margin: 24px 0;
+    }
+
+    &-vertical{
+        position: relative;
+        top: -0.06em;
+        display: inline-block;
+        height: 0.9em;
+        margin: 0 8px;
+        vertical-align: middle;
+        border-top: 0;
+        border-left: 1px solid rgb(0 0 0 / 6%);
+    }
+
+    &-inner-text{
+        display: inline-block;
+        padding: 0 1em;
+    }
+
+    &-with-text{
+        display: flex;
+        white-space: nowrap;
+        border: none;
+        border-color: rgb(0 0 0 / 6%);
+        font-size: 16px;
+
+        &::before{
+            position: relative;
+            top: 50%;
+            width: 50%;
+            border-top: 1px solid transparent;
+            border-top-color: inherit;
+            border-bottom: 0;
+            transform: translateY(50%);
+            content: "";
+        }
+        &::after{
+            position: relative;
+            top: 50%;
+            width: 50%;
+            border-top: 1px solid transparent;
+            border-top-color: inherit;
+            border-bottom: 0;
+            transform: translateY(50%);
+            content: "";
+        }
+    }
+
+    &-with-text-left{
+        &::before{
+            width: 5%;
+        }
+        &::after{
+            width: 95%;
+        }
+    }
+
+    &-with-text-right{
+        &::before{
+            width: 95%;
+        }
+        &::after{
+            width: 5%;
+        }
+    }
+
+    &-dashed{
+        border-style: dashed;
+        border-width: 1px 0 0;
+    }
+    &-vertical&-dashed{
+        border-width: 0 0 0 1px;
+    }
+}

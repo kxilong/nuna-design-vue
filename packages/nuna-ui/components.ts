@@ -8,7 +8,8 @@ import { NButton } from '@nuna-ui/components/button';
 import { NAvatar } from '@nuna-ui/components/avatar';
 import { NBadge } from '@nuna-ui/components/badge';
 import { NSpace } from '@nuna-ui/components/space';
+import { NDivider } from '@nuna-ui/components/divider';
 
 import { Plugin } from 'vue';
 
-export default [NSpin, NButton, NAvatar, NBadge, NSpace] as Plugin[];
+export default [NSpin, NButton, NAvatar, NBadge, NSpace, NDivider] as Plugin[];
