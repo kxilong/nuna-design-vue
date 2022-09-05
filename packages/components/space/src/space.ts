@@ -38,7 +38,7 @@ export default defineComponent({
                     const spacerBox = h('span', { class: `${prefixCls}-spacer` }, spacer);
 
                     extractedChildren.push(createVNode(Item));
-                    if (loopKey + 1 !== children.children?.length) {
+                    if (loopKey + 1 !== children.children?.length && spacer) {
                         extractedChildren.push(createVNode(spacerBox));
                     }
                 });

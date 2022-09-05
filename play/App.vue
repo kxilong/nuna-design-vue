@@ -4,7 +4,8 @@
     <!-- <NAvatar /> -->
     <!-- <NSpace /> -->
     <!-- <NDivider /> -->
-    <NEmpty />
+    <!-- <NEmpty /> -->
+    <NAlert />
 </template>
 
 <script lang="ts" setup>
@@ -14,7 +15,8 @@
 // import NBadge from './examples/badge.vue';
 // import NSpace from './examples/space.vue';
 // import NDivider from './examples/divider.vue';
-import NEmpty from './examples/empty.vue';
+// import NEmpty from './examples/empty.vue';
+import NAlert from './examples/alert.vue';
 </script>
 
 <style>
