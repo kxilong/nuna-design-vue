@@ -3,7 +3,8 @@
     <!-- <NButton /> -->
     <!-- <NAvatar /> -->
     <!-- <NSpace /> -->
-    <NDivider />
+    <!-- <NDivider /> -->
+    <NEmpty />
 </template>
 
 <script lang="ts" setup>
@@ -12,7 +13,8 @@
 // import NAvatar from './examples/avatar.vue';
 // import NBadge from './examples/badge.vue';
 // import NSpace from './examples/space.vue';
-import NDivider from './examples/divider.vue';
+// import NDivider from './examples/divider.vue';
+import NEmpty from './examples/empty.vue';
 </script>
 
 <style>
