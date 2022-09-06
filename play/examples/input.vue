@@ -5,11 +5,10 @@ component:     input
 Copyright © YourCompanyName All rights reserved
 -->
 <template>
-    {{ value }}
+    <n-input v-model:value="value" placeholder="Basic usage" />
+    <p></p>
     <n-input v-model="value" placeholder="Basic usage" @input="handleInput" @change="handleChange">
-        <template #prefix>
-            <add-user theme="outline" size="24" fill="#333" />
-        </template>
+        <template #prefix>￥</template>
         <template #suffix>
             <add-user theme="outline" size="24" fill="#333" />
         </template>

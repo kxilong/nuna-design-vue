@@ -17,4 +17,6 @@ export const inputEmits = {
     ['update:modelValue']: (value: string) => value,
     input: (value: string) => value,
     change: (value: string) => value,
+    blur: (value: string) => value,
+    focus: (value: string) => value,
 };
