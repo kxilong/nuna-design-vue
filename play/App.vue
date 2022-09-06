@@ -6,7 +6,8 @@
     <!-- <NDivider /> -->
     <!-- <NEmpty /> -->
     <!-- <NAlert /> -->
-    <NInput />
+    <!-- <NInput /> -->
+    <NRow />
 </template>
 
 <script lang="ts" setup>
@@ -18,7 +19,8 @@
 // import NDivider from './examples/divider.vue';
 // import NEmpty from './examples/empty.vue';
 // import NAlert from './examples/alert.vue';
-import NInput from './examples/input.vue';
+// import NInput from './examples/input.vue';
+import NRow from './examples/row.vue';
 </script>
 
 <style>

@@ -12,6 +12,8 @@ import { NDivider } from '@nuna-ui/components/divider';
 import { NEmpty } from '@nuna-ui/components/empty';
 import { NAlert } from '@nuna-ui/components/alert';
 import { NInput } from '@nuna-ui/components/input';
+import { NRow } from '@nuna-ui/components/row';
+import { NCol } from '@nuna-ui/components/col';
 
 import { Plugin } from 'vue';
 
@@ -25,4 +27,6 @@ export default [
     NEmpty,
     NAlert,
     NInput,
+    NRow,
+    NCol,
 ] as Plugin[];

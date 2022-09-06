@@ -1,0 +1,41 @@
+@import './mixins/index';
+@import './themes/default';
+
+@row-prefix-cls: ~'@{na-prefix}-row';
+
+
+.@{row-prefix-cls} {
+    .reset-component();
+
+    display: flex;
+    flex-flow: row wrap;
+
+    &-top{
+        align-items: flex-start;
+    }
+
+    &-start{
+        justify-content: flex-start;
+    }
+
+    &-center{
+        justify-content: center;
+    }
+
+    &-space-around{
+        justify-content: space-around;
+    }
+
+    &-middle{
+        align-items: center;
+    }
+
+    &-bottom{
+        align-items: flex-end;
+    }
+
+    &-space-between{
+        justify-content: space-between;
+    }
+
+}
