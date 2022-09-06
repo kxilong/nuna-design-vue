@@ -5,7 +5,8 @@
     <!-- <NSpace /> -->
     <!-- <NDivider /> -->
     <!-- <NEmpty /> -->
-    <NAlert />
+    <!-- <NAlert /> -->
+    <NInput />
 </template>
 
 <script lang="ts" setup>
@@ -16,7 +17,8 @@
 // import NSpace from './examples/space.vue';
 // import NDivider from './examples/divider.vue';
 // import NEmpty from './examples/empty.vue';
-import NAlert from './examples/alert.vue';
+// import NAlert from './examples/alert.vue';
+import NInput from './examples/input.vue';
 </script>
 
 <style>

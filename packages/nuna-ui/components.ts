@@ -11,7 +11,18 @@ import { NSpace } from '@nuna-ui/components/space';
 import { NDivider } from '@nuna-ui/components/divider';
 import { NEmpty } from '@nuna-ui/components/empty';
 import { NAlert } from '@nuna-ui/components/alert';
+import { NInput } from '@nuna-ui/components/input';
 
 import { Plugin } from 'vue';
 
-export default [NSpin, NButton, NAvatar, NBadge, NSpace, NDivider, NEmpty, NAlert] as Plugin[];
+export default [
+    NSpin,
+    NButton,
+    NAvatar,
+    NBadge,
+    NSpace,
+    NDivider,
+    NEmpty,
+    NAlert,
+    NInput,
+] as Plugin[];

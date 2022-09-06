@@ -1,0 +1,45 @@
+/*
+ * @author        changan <740394554@qq.com>
+ * @date          2022-09-06 13:55:51
+ * Copyright © YourCompanyName All rights reserved
+ */
+ @import './mixins/index';
+ @import './themes/default';
+
+ @input-prefix-cls: ~'@{na-prefix}-input';
+
+
+ .@{input-prefix-cls} {
+     .reset-component();
+
+     width: 100%;
+
+     &-group {
+        display: inline-flex;
+     }
+
+     &-wrapper {
+        flex: 1;
+     }
+
+     &-wrapper &-inner {
+        box-sizing: border-box;
+        width: 100%;
+        min-width: 0;
+        padding: 4px 11px;
+        color: #000000d9;
+        font-size: 14px;
+        line-height: 1.5715;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #d9d9d9;
+        border-radius: 2px;
+        transition: all .3s;
+    }
+    &-wrapper &-inner:focus {
+        border-color: @primary-color;
+        box-shadow: 0 0 0 2px @primary-color-outline;
+        border-right-width: 1px!important;
+        outline: 0;
+    }
+ }
