@@ -14,6 +14,7 @@ import { NAlert } from '@nuna-ui/components/alert';
 import { NInput } from '@nuna-ui/components/input';
 import { NRow } from '@nuna-ui/components/row';
 import { NCol } from '@nuna-ui/components/col';
+import { NCollapse, NCollapseItem } from '@nuna-ui/components/collapse';
 
 import { Plugin } from 'vue';
 
@@ -29,4 +30,6 @@ export default [
     NInput,
     NRow,
     NCol,
+    NCollapse,
+    NCollapseItem,
 ] as Plugin[];

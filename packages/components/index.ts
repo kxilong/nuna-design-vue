@@ -7,3 +7,4 @@ export * from './alert';
 export * from './input';
 export * from './row';
 export * from './col';
+export * from './collapse';
