@@ -15,7 +15,6 @@
 </template>
 
 <script lang="ts" setup>
-import { defineOptions } from 'vue';
 import useConfigInject from '@nuna-ui/utils/hooks/useConfigInject';
 import { dividerProps } from './dividerTypes';
 

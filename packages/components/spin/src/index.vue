@@ -48,7 +48,7 @@ const shouldDelay = (spinning?: boolean, delay?: number): boolean => {
 
 const shouldBeDelayed = shouldDelay(props?.spinning, props?.delay);
 const sSpinning = ref<boolean>(props.spinning && !shouldBeDelayed);
-let originalUpdateSpinning: () => void;
+let originalUpdateSpinning = null;
 
 let updateSpinning = () => {
     if (sSpinning.value !== props.spinning) {
@@ -71,7 +71,7 @@ const debouncifyUpdateSpinning = () => {
 };
 
 onMounted(() => {
-    originalUpdateSpinning = updateSpinning;
+    originalUpdateSpinning = updateSpinning as any;
     debouncifyUpdateSpinning();
     updateSpinning();
 });

@@ -7,8 +7,9 @@ import type { CollapseActiveName } from '@nuna-ui/components/collapse/src/collap
 import type { InjectionKey, Ref } from 'vue';
 
 export interface CollapseContext {
-    activeNames: Ref<CollapseActiveName>;
-    handleItemClick: () => void;
+    activeNames: Ref<any>;
+    // eslint-disable-next-line no-unused-vars
+    handleItemClick: (name: CollapseActiveName) => void;
 }
 
 export const collapseContextKey: InjectionKey<CollapseContext> = Symbol('collapseContextKey');

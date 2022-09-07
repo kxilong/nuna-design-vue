@@ -33,7 +33,7 @@ export default defineComponent({
                     const Item = h(
                         'div',
                         { class: `${prefixCls}-item`, key: `LoopKey${loopKey}` },
-                        createVNode(child),
+                        createVNode(child as VNode),
                     );
                     const spacerBox = h('span', { class: `${prefixCls}-spacer` }, spacer);
 

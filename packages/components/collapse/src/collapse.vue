@@ -36,16 +36,17 @@ const handleItemClick = name => {
         const _activeName = activeNames.value != name && name;
         setActiveNames(_activeName);
     } else {
-        const _activeNames = [...activeNames.value];
-        const index = _activeNames.indexOf(name);
+        if (Array.isArray(activeNames.value)) {
+            const _activeNames = [...activeNames.value];
+            const index = _activeNames.indexOf(name);
 
-        if (index > -1) {
-            _activeNames.splice(index, 1);
-        } else {
-            _activeNames.push(name);
+            if (index > -1) {
+                _activeNames.splice(index, 1);
+            } else {
+                _activeNames.push(name);
+            }
+            setActiveNames(_activeNames);
         }
-
-        setActiveNames(_activeNames);
     }
 };
 
