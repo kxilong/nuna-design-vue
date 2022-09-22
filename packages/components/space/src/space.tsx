@@ -8,6 +8,7 @@ import type { VNode } from 'vue';
 import useConfigInject from '@nuna-ui/utils/hooks/useConfigInject';
 import { spaceProps } from './spaceTypes';
 import { componentSizeMap } from '@nuna-ui/utils/constants/size';
+import '../style/space.less';
 
 export default defineComponent({
     name: 'NSpace',

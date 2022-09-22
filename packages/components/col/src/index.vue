@@ -14,3 +14,6 @@ defineOptions({
 defineProps(colProps);
 const { prefixCls } = useConfigInject('col');
 </script>
+<style lang="less" scoped>
+    @import '../style/col.less';
+</style>

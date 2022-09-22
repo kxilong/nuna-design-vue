@@ -37,3 +37,6 @@ const countNumber = computed(() => {
     }
 });
 </script>
+<style lang="less" scoped>
+    @import '../style/badge.less';
+</style>

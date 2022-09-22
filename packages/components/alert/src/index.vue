@@ -118,3 +118,6 @@ const handleClose = () => {
     visible.value = false;
 };
 </script>
+<style lang="less" scoped>
+@import '../style/alert.less';
+</style>

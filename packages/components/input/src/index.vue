@@ -92,3 +92,6 @@ onMounted(() => {
     setNativeInputValue();
 });
 </script>
+<style lang="less" scoped>
+    @import '../style/input.less';
+</style>

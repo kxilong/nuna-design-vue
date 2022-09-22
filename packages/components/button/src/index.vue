@@ -37,13 +37,14 @@
     </button>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts" setup  name="NButton">
 import { computed, Text, useSlots } from 'vue';
 import useConfigInject from '@nuna-ui/utils/hooks/useConfigInject';
 import { buttonEmits, buttonProps } from './buttonTypes';
 
 defineOptions({
     name: 'NButton',
+    inheritAttrs: false,
 });
 
 const props = defineProps(buttonProps);
@@ -68,3 +69,6 @@ const handleClick = (evt: MouseEvent) => {
     emit('click', evt);
 };
 </script>
+<style lang="less" scoped>
+@import '../style/button.less';
+</style>

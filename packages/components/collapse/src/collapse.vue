@@ -52,3 +52,6 @@ const handleItemClick = name => {
 
 provide(collapseContextKey, { activeNames, handleItemClick });
 </script>
+<style lang="less" scoped>
+    @import '../style/collapse.less';
+</style>

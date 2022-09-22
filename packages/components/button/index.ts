@@ -6,3 +6,4 @@ export const NButton = withInstall(Button);
 export default NButton;
 
 export * from './src/index.vue';
+

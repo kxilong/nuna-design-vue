@@ -1,14 +1,14 @@
 <template>
     <!-- <spin /> -->
-    <!-- <NButton /> -->
+    <NButton />
     <!-- <NAvatar /> -->
     <!-- <NSpace /> -->
     <!-- <NDivider /> -->
     <!-- <NEmpty /> -->
-    <!-- <NAlert /> -->
+    <!-- <NAlert />  -->
     <!-- <NInput /> -->
     <!-- <NRow /> -->
-    <NCollapse />
+    <!-- <NCollapse /> -->
 </template>
 
 <script lang="ts" setup>
@@ -22,7 +22,7 @@
 // import NAlert from './examples/alert.vue';
 // import NInput from './examples/input.vue';
 // import NRow from './examples/row.vue';
-import NCollapse from './examples/collapse.vue';
+// import NCollapse from './examples/collapse.vue';
 </script>
 
 <style>

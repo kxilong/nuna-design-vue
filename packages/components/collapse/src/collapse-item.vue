@@ -65,3 +65,6 @@ const clickCollapseHeader = () => {
     collapse?.handleItemClick(props.name);
 };
 </script>
+<style lang="less" scoped>
+    @import '../style/collapse.less';
+</style>

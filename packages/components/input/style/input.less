@@ -1,0 +1,123 @@
+/*
+ * @author        changan <740394554@qq.com>
+ * @date          2022-09-06 13:55:51
+ * Copyright © YourCompanyName All rights reserved
+ */
+ @import '../../../theme-chalk/src/mixins/reset';
+ @import '../../../theme-chalk/src/themes/default';
+
+@input-prefix-cls: ~'@{na-prefix}-input';
+
+
+.@{input-prefix-cls} {
+    .reset-component();
+
+    width: 100%;
+    display: inline-block;
+
+    &-prefix{
+        margin-right: 4px;
+    }
+
+    &-suffix{
+        margin-left: 4px;
+    }
+
+    &-prefix svg{
+        width: 1em;
+        height: 1em;
+    }
+
+    &-suffix svg{
+        width: 1em;
+        height: 1em;
+    }
+
+    &-group {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid #d9d9d9;
+        border-radius: 2px;
+        padding: 4px 11px;
+
+        &::before{
+            width: 0;
+            visibility: hidden;
+            content: "\a0";
+        }
+
+    }
+
+    &-group:hover{
+        border-color: @primary-color;
+        border-right-width: 1px!important;
+        z-index: 1;
+    }
+
+    &-focused{
+        box-shadow: 0 0 0 2px @primary-color-outline;
+        border-color: @primary-color;
+        border-right-width: 1px!important;
+        outline: 0;
+    }
+
+    &-group &-wrapper input{
+        border: none;
+        padding: 0;
+        outline: none;
+    }
+
+    &-wrapper {
+        flex: 1;
+    }
+
+    &-wrapper &-inner {
+        box-sizing: border-box;
+        width: 100%;
+        min-width: 0;
+        padding: 4px 11px;
+        color: #000000d9;
+        font-size: 14px;
+        line-height: 1.5715;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #d9d9d9;
+        border-radius: 2px;
+        transition: all .3s;
+        &:hover{
+            border-color: @primary-color;
+            border-right-width: 1px!important;
+            z-index: 1;
+        }
+        &:focus {
+            border-color: @primary-color;
+            box-shadow: 0 0 0 2px @primary-color-outline;
+            border-right-width: 1px!important;
+            outline: 0;
+        }
+    }
+
+    &-group &-inner:focus{
+        border: none;
+        border-color:none;
+        box-shadow: none;
+        outline: 0;
+    }
+
+    .i-icon{
+        display: inline-block;
+        color: inherit;
+        font-style: normal;
+        line-height: 0;
+        text-align: center;
+        text-transform: none;
+        vertical-align: -0.125em;
+        text-rendering: optimizelegibility;
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+
+.anticon{
+    display: inline-block;
+}

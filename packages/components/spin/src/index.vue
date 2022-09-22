@@ -87,3 +87,6 @@ onUnmounted(() => {
     cancelExistSpin();
 });
 </script>
+<style lang="less" scoped>
+    @import '../style/spin.less';
+</style>

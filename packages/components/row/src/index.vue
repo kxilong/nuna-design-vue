@@ -20,3 +20,6 @@ defineOptions({
 defineProps(rowProps);
 const { prefixCls } = useConfigInject('row');
 </script>
+<style lang="less" scoped>
+    @import '../style/row.less';
+</style>
