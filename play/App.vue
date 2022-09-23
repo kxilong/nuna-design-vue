@@ -13,7 +13,7 @@
 
 <script lang="ts" setup>
 // import Spin from './examples/spin.vue';
-// import NButton from './examples/button.vue';
+import NButton from './examples/button.vue';
 // import NAvatar from './examples/avatar.vue';
 // import NBadge from './examples/badge.vue';
 // import NSpace from './examples/space.vue';

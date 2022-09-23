@@ -26,5 +26,5 @@ const { prefixCls } = useConfigInject('divider');
 defineProps(dividerProps);
 </script>
 <style lang="less" scoped>
-    @import '../style/divider.less';
+    @import "../style/divider.less";
 </style>

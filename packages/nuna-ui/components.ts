@@ -3,22 +3,35 @@
  * @date          2022-08-15 14:49:25
  * Copyright © YourCompanyName All rights reserved
  */
-import { NSpin } from '@nuna-ui/components/spin';
-import { NButton } from '@nuna-ui/components/button';
-import { NAvatar } from '@nuna-ui/components/avatar';
-import { NBadge } from '@nuna-ui/components/badge';
-import { NSpace } from '@nuna-ui/components/space';
-import { NDivider } from '@nuna-ui/components/divider';
-import { NEmpty } from '@nuna-ui/components/empty';
-import { NAlert } from '@nuna-ui/components/alert';
-import { NInput } from '@nuna-ui/components/input';
-import { NRow } from '@nuna-ui/components/row';
-import { NCol } from '@nuna-ui/components/col';
-import { NCollapse, NCollapseItem } from '@nuna-ui/components/collapse';
+import SpinInstall, { NSpin } from '@nuna-ui/components/spin';
+import ButtonInstall, { NButton } from '@nuna-ui/components/button';
+import AvatarInstall, { NAvatar } from '@nuna-ui/components/avatar';
+import BadgeInstall, { NBadge } from '@nuna-ui/components/badge';
+import SpaceInstall, { NSpace } from '@nuna-ui/components/space';
+import DividerInstall, { NDivider } from '@nuna-ui/components/divider';
+import EmptyInstall, { NEmpty } from '@nuna-ui/components/empty';
+import AlertInstall, { NAlert } from '@nuna-ui/components/alert';
+import InputInstall, { NInput } from '@nuna-ui/components/input';
+import RowInstall, { NRow } from '@nuna-ui/components/row';
+import ColInstall, { NCol } from '@nuna-ui/components/col';
+import NCollapseInstall, { NCollapse, NCollapseItem } from '@nuna-ui/components/collapse';
 
-import { Plugin } from 'vue';
+const installs = [
+    SpinInstall,
+    ButtonInstall,
+    AvatarInstall,
+    SpaceInstall,
+    BadgeInstall,
+    DividerInstall,
+    EmptyInstall,
+    AlertInstall,
+    InputInstall,
+    RowInstall,
+    ColInstall,
+    NCollapseInstall,
+];
 
-export default [
+export {
     NSpin,
     NButton,
     NAvatar,
@@ -32,4 +45,10 @@ export default [
     NCol,
     NCollapse,
     NCollapseItem,
-] as Plugin[];
+};
+
+export default {
+    install(app): void {
+        installs.forEach((p) => app.use(p));
+    },
+};

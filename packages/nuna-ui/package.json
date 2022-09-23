@@ -3,9 +3,10 @@
     "version": "1.0.0",
     "private": false,
     "description": "",
-    "main": "lib/index.js",
-    "module": "es/index.js",
+    "main": "./index.umd.js",
+    "module": "./index.es.js",
+    "style": "style.css",
     "author": "",
-    "license": "ISC",
+    "license": "MIT",
     "dependencies": {}
 }

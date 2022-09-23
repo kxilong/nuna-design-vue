@@ -9,6 +9,7 @@ const { copyFile } = require('fs/promises');
 
 const projRoot = path.resolve(__dirname, '../../');
 const entryDir = path.resolve(__dirname, '../../packages/components');
+const allEntryDir = path.resolve(__dirname, '../../packages/nuna-ui');
 const pkgJsonDir = path.resolve(__dirname, '../../packages/nuna-ui/package.json');
 const outputDir = path.resolve(__dirname, '../../dist');
 
@@ -52,7 +53,7 @@ const buildAll = async () => {
             build: {
                 rollupOptions,
                 lib: {
-                    entry: path.resolve(entryDir, 'index.ts'),
+                    entry: path.resolve(allEntryDir, 'components.ts'),
                     name: 'Nunaui',
                     fileName: 'index',
                     formats: ['es', 'umd'],

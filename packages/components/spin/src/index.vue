@@ -88,5 +88,5 @@ onUnmounted(() => {
 });
 </script>
 <style lang="less" scoped>
-    @import '../style/spin.less';
+    @import "../style/spin.less";
 </style>

@@ -119,5 +119,5 @@ const handleClose = () => {
 };
 </script>
 <style lang="less" scoped>
-@import '../style/alert.less';
+@import "../style/alert.less";
 </style>

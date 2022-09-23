@@ -93,5 +93,5 @@ onMounted(() => {
 });
 </script>
 <style lang="less" scoped>
-    @import '../style/input.less';
+    @import "../style/input.less";
 </style>

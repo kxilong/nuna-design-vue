@@ -1,8 +1,15 @@
-// .vitepress/theme/index.js
+// .vitepress/theme/index.ts
 
 import DefaultTheme from 'vitepress/theme';
-import './styles/style.less';
+import { registerComponents } from './register-components.js';
+import '@nuna-ui/theme-chalk/src/index.less';
+import './styles/index.less';
+import NunaDesignVue from '../../../dist';
 
 export default {
-  ...DefaultTheme,
+    ...DefaultTheme,
+    enhanceApp({ app }) {
+        app.use(NunaDesignVue);
+        registerComponents(app);
+    },
 };

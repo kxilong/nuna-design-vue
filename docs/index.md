@@ -1,11 +1,11 @@
 ---
 layout: home
 
-title: Nuna-ui
+title: Nuna Design
 titleTemplate: 开箱即用的高质量 Vue3 组件
 
 hero:
-    name: Nuna-ui
+    name: Nuna Design
     text: 开发和服务于企业级后台产品
     tagline: 开箱即用的高质量 Vue3 组件
     actions:

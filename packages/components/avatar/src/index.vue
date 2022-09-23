@@ -45,5 +45,5 @@ const errorHandler = e => {
 };
 </script>
 <style lang="less" scoped>
-@import '../style/avatar.less';
+@import "../style/avatar.less";
 </style>

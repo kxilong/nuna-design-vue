@@ -21,5 +21,5 @@ defineProps(emptyProps);
 const { prefixCls } = useConfigInject('empty');
 </script>
 <style lang="less" scoped>
-    @import '../style/empty.less';
+    @import "../style/empty.less";
 </style>

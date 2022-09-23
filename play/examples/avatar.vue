@@ -13,8 +13,8 @@ Copyright © YourCompanyName All rights reserved
     <n-avatar>U</n-avatar>
     <n-avatar>USER</n-avatar>
     <n-avatar src="https://joeschmoe.io/api/v1/random" />
-    <n-avatar style="color: #f56a00; background-color: #fde3cf">U</n-avatar>
-    <n-avatar style="background-color: #87d068">
+    <n-avatar style="color: #f56a00; background-color: #fde3cf;">U</n-avatar>
+    <n-avatar style="background-color: #87d068;">
         <template #icon>
             <Avatar />
         </template>
