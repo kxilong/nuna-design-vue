@@ -14,6 +14,9 @@
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: linear-gradient(120deg, #2463eb 30%, #41d1ff);
   --vp-nav-shadow: #f0f1f2;
+  --vp-code-block-bg:#f5f7fa;
+  --vp-code-text-color:#303133;
+  --vp-code-font-size:14px;
 }
 
 // Dark theme
@@ -22,8 +25,18 @@ html.dark{
     --vp-nav-shadow: #000000a6;
     --vp-c-brand-dark: #2463eb;
     --vp-c-brand-darker: #2463eb;
+  --vp-code-block-bg:#262727;
+  --vp-code-text-bg:#ffffff;
 }
 
 .VPNav {
     box-shadow: 0 2px 8px var(--vp-nav-shadow);
+}
+
+.vp-doc {
+    font-size: 14px;
+}
+
+.vp-doc [class*='language-'] code{
+    color: var(--vp-code-text-bg);
 }

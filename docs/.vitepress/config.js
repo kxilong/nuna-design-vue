@@ -1,55 +1,18 @@
+import { sidebars } from './config/sidebars';
+
 export default {
     base: '/nuna-design-vue/',
     head: [['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }]],
     themeConfig: {
         siteTitle: 'Nuna Design',
+        description: 'A Vue.js UI library.',
         logo: '/logo.svg',
         nav: [
             { text: '指南', link: '/guild/installation' },
-            { text: '组件', link: '/examples/button/' },
+            { text: '组件', link: '/components/button' },
         ],
         socialLinks: [{ icon: 'github', link: 'https://github.com/kxilong/nuna-ui' }],
-        sidebar: {
-            '/guild/': [
-                {
-                    text: '基础',
-                    items: [
-                        {
-                            text: '安装',
-                            link: '/guild/installation',
-                        },
-                        {
-                            text: '快速开始',
-                            link: '/guild/quickstart',
-                        },
-                    ],
-                },
-                {
-                    text: '进阶',
-                    items: [
-                        {
-                            text: 'xx',
-                            link: '/xx',
-                        },
-                    ],
-                },
-            ],
-            '/examples/': [
-                {
-                    text: '基础组件',
-                    items: [
-                        {
-                            text: 'Button按钮',
-                            link: '/examples/button/',
-                        },
-                        {
-                            text: 'Icon图标',
-                            link: '/examples/Icon/',
-                        },
-                    ],
-                },
-            ],
-        },
+        sidebar: sidebars,
         demoblock: {
             '/': {
                 'hide-text': 'Hide',
@@ -68,7 +31,9 @@ export default {
     markdown: {
         config: md => {
             const { demoBlockPlugin } = require('vitepress-theme-demoblock');
-            md.use(demoBlockPlugin);
+            md.use(demoBlockPlugin, {
+                cssPreprocessor: 'less',
+            });
         },
     },
 };

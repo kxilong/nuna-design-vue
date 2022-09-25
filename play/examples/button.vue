@@ -15,9 +15,9 @@ Copyright © YourCompanyName All rights reserved
             切换11111111111111
         </n-button>
         <br />
-        <n-button type="warning" @click="handleClick" block>切换11111111111111</n-button>
+        <n-button type="warning" @click="handleClick" block disabled>切换11111111111111</n-button>
         <br />
-        <n-button type="success" @click="handleClick" block>切换11111111111111</n-button>
+        <n-button type="success" @click="handleClick" block disabled>切换11111111111111</n-button>
         <br />
         <n-button type="dashed" @click="handleClick" block>切换11111111111111</n-button>
         <br />
@@ -26,6 +26,12 @@ Copyright © YourCompanyName All rights reserved
         <n-button type="link" @click="handleClick" block>link</n-button>
         <br />
         <n-button type="error" @click="handleClick" shape="round">切换</n-button>
+
+        <n-button shape="circle" type="primary">
+            <template #icon>
+                <lightning theme="outline" size="14" fill="#fff" strokeLinecap="square" />
+            </template>
+        </n-button>
     </div>
 </template>
 <script lang="ts">
@@ -36,7 +42,7 @@ export default defineComponent({
         Lightning,
     },
     setup() {
-        let loading = ref(false);
+        let loading = ref(true);
         const handleClick = () => {
             loading.value = true;
             setTimeout(() => {

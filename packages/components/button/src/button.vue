@@ -8,6 +8,7 @@
             loading && `${prefixCls}-loading`,
         ]"
         type="button"
+        :disabled="disabled"
         @click="handleClick"
     >
         <span :class="`${prefixCls}-loading-icon`" v-if="loading">
@@ -70,5 +71,5 @@ const handleClick = (evt: MouseEvent) => {
 };
 </script>
 <style lang="less" scoped>
-@import "../style/button.less";
+@import '../style/button.less';
 </style>

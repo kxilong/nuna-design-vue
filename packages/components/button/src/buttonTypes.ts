@@ -7,7 +7,16 @@ import { SizeType } from '../../config-provider';
 import { ExtractPropTypes, PropType } from 'vue';
 import PropTypes from '@nuna-ui/utils/vue-types';
 
-type buttonTypes = 'primary' | 'dashed' | 'link' | 'text' | 'default' | 'warning' | 'success';
+type buttonTypes =
+    | 'primary'
+    | 'dashed'
+    | 'link'
+    | 'text'
+    | 'default'
+    | 'warning'
+    | 'success'
+    | 'error';
+
 type shapeTypes = 'default' | 'circle' | 'round';
 
 export const buttonProps = {
@@ -23,7 +32,14 @@ export const buttonProps = {
     shape: {
         type: String as PropType<shapeTypes>,
     },
-    autoInsertSpace: PropTypes.bool,
+    autoInsertSpace: {
+        type: Boolean,
+        default: true,
+    },
+    disabled: {
+        type: Boolean,
+        default: false,
+    },
 };
 
 export const buttonEmits = {
