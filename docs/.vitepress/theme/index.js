@@ -5,7 +5,7 @@ import 'vitepress-theme-demoblock/theme/styles/index.css';
 import { registerComponents } from './register-components.js';
 import '@nuna-ui/theme-chalk/src/index.less';
 import './styles/index.less';
-import NunaDesignVue from '../../../dist';
+import NunaDesignVue from '../../build';
 
 export default {
     ...DefaultTheme,

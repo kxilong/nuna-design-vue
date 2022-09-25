@@ -6,12 +6,14 @@ const vue = require('@vitejs/plugin-vue');
 const vueJsx = require('@vitejs/plugin-vue-jsx');
 const DefineOptions = require('unplugin-vue-define-options/vite');
 const { copyFile } = require('fs/promises');
+const copyFolder = require('../tool/actionFile');
 
 const projRoot = path.resolve(__dirname, '../../');
 const entryDir = path.resolve(__dirname, '../../packages/components');
 const allEntryDir = path.resolve(__dirname, '../../packages/nuna-ui');
 const pkgJsonDir = path.resolve(__dirname, '../../packages/nuna-ui/package.json');
 const outputDir = path.resolve(__dirname, '../../dist');
+const docsDir = path.resolve(__dirname, '../../docs/build');
 
 const baseConfig = defineConfig({
     configFile: false,
@@ -84,4 +86,5 @@ exports.build = async () => {
         await buildSingle(comp);
     }
     copyFiles();
+    copyFolder(outputDir, docsDir, true);
 };

@@ -17,6 +17,7 @@ importers:
       '@vue/eslint-config-prettier': ^7.0.0
       '@vue/eslint-config-typescript': ^11.0.0
       '@vue/test-utils': 2.0.0-rc.18
+      child_process: ^1.0.2
       commander: ^9.4.0
       commitizen: ^4.2.4
       commitlint: ^17.0.3
@@ -54,6 +55,7 @@ importers:
       '@nuna-ui/components': link:packages/components
       '@nuna-ui/theme-chalk': link:packages/theme-chalk
       '@nuna-ui/utils': link:packages/utils
+      child_process: 1.0.2
       lodash-es: 4.17.21
       prism-theme-vars: 0.2.4
       unplugin-vue-define-options: 0.9.2_vue@3.2.39
@@ -1724,6 +1726,10 @@ packages:
   /check-error/1.0.2:
     resolution: {integrity: sha512-BrgHpW9NURQgzoNyjfq0Wu6VFO6D7IZEmJNdtgNqpzGG8RuNFHt2jQxWlAs4HMe119chBnv+34syEZtc6IhLtA==}
     dev: true
+
+  /child_process/1.0.2:
+    resolution: {integrity: sha512-Wmza/JzL0SiWz7kl6MhIKT5ceIlnFPJX+lwUGj7Clhy5MMldsSoJR0+uvRzOS5Kv45Mq7t1PoE8TsOA9bzvb6g==}
+    dev: false
 
   /chokidar/3.5.3:
     resolution: {integrity: sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==}
