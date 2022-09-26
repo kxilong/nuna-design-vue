@@ -3,7 +3,7 @@
  * @date          2022-09-02 13:48:47
  * Copyright © YourCompanyName All rights reserved
  */
-import { defineComponent, renderSlot, createVNode, h, computed } from 'vue';
+import { defineComponent, renderSlot, createVNode, h, computed, watch, ref } from 'vue';
 import type { VNode } from 'vue';
 import useConfigInject from '@nuna-ui/utils/hooks/useConfigInject';
 import { spaceProps } from './spaceTypes';
@@ -16,9 +16,19 @@ export default defineComponent({
     setup(props, { slots }) {
         const { prefixCls } = useConfigInject('space');
         // eslint-disable-next-line vue/no-setup-props-destructure
-        const { size } = props;
+        const size = ref(props.size);
+
+        watch(
+            () => props.size,
+            newValue => {
+                size.value = newValue;
+            },
+        );
+
         const gapSize = computed(() => {
-            return typeof Number(size) === 'number' ? `${size}px` : `${componentSizeMap[size]}px`;
+            return isNaN(Number(size.value))
+                ? `${componentSizeMap[size.value]}px`
+                : `${size.value}px`;
         });
 
         return () => {

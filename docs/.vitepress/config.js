@@ -8,11 +8,15 @@ export default {
         description: 'A Vue.js UI library.',
         logo: '/logo.svg',
         nav: [
-            { text: '指南', link: '/guild/installation' },
+            { text: '指南', link: '/guide/introduce' },
             { text: '组件', link: '/components/button' },
         ],
         socialLinks: [{ icon: 'github', link: 'https://github.com/kxilong/nuna-ui' }],
         sidebar: sidebars,
+        footer: {
+            message: 'Released under the MIT License.',
+            copyright: 'Copyright © 2022-present 板栗🌰',
+        },
         demoblock: {
             '/': {
                 'hide-text': 'Hide',

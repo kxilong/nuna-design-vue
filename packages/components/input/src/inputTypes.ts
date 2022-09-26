@@ -11,6 +11,10 @@ export const inputProps = {
         default: '',
     },
     placeholder: PropTypes.string,
+    disabled: {
+        type: Boolean,
+        default: false,
+    },
 };
 
 export const inputEmits = {

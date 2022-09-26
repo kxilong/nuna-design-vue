@@ -308,7 +308,11 @@ const inputProps = {
     type: [String || Number || Object],
     default: ""
   },
-  placeholder: C.string
+  placeholder: C.string,
+  disabled: {
+    type: Boolean,
+    default: false
+  }
 };
 const inputEmits = {
   ["update:modelValue"]: (value) => value,
@@ -325,7 +329,7 @@ var _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const _hoisted_1 = ["placeholder"];
+const _hoisted_1 = ["placeholder", "disabled"];
 const __default__ = defineComponent({
   name: "NInput"
 });
@@ -383,7 +387,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         class: normalizeClass([
           `${unref(prefixCls)}`,
           (((_a = _ctx.$slots) == null ? void 0 : _a.prefix) || ((_b = _ctx.$slots) == null ? void 0 : _b.suffix)) && `${unref(prefixCls)}-group`,
-          focused.value && `${unref(prefixCls)}-focused`
+          focused.value && `${unref(prefixCls)}-focused`,
+          _ctx.disabled && `is-disabled`
         ])
       }, [
         ((_c = _ctx.$slots) == null ? void 0 : _c.prefix) ? (openBlock(), createElementBlock("span", {
@@ -404,7 +409,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             onInput: handleInput,
             onChange: handleChange,
             onFocus: handleFocus,
-            onBlur: handleBlur
+            onBlur: handleBlur,
+            disabled: _ctx.disabled
           }, null, 42, _hoisted_1)
         ], 2),
         ((_d = _ctx.$slots) == null ? void 0 : _d.suffix) ? (openBlock(), createElementBlock("span", {
@@ -417,7 +423,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var Input = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-61fdefbd"]]);
+var Input = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-4700646c"]]);
 const withInstall = (main, extra) => {
   main.install = (app) => {
     for (const comp of [main, ...Object.values(extra != null ? extra : {})]) {

@@ -1,4 +1,23 @@
 {
+    "/guide/": [
+        {
+            "text": "Nuna Design of Vue",
+            "items": [
+                {
+                    "link": "/components/button",
+                    "text": "介绍"
+                },
+                {
+                    "link": "/components/button",
+                    "text": "快速上手"
+                },
+                {
+                    "link": "/components/button",
+                    "text": "更新日志"
+                }
+            ]
+        }
+    ],
     "/components/": [
         {
             "text": "通用",
@@ -6,6 +25,66 @@
                 {
                     "link": "/components/button",
                     "text": "Button  按钮"
+                }
+            ]
+        },
+        {
+            "text": "布局",
+            "items": [
+                {
+                    "link": "/components/divider",
+                    "text": "Divider 分割线"
+                },
+                {
+                    "link": "/components/gird",
+                    "text": "Grid 栅格"
+                },
+                {
+                    "link": "/components/space",
+                    "text": "Space 间距"
+                }
+            ]
+        },
+        {
+            "text": "数据录入",
+            "items": [
+                {
+                    "link": "/components/input",
+                    "text": "Input 输入框"
+                }
+            ]
+        },
+        {
+            "text": "数据展示",
+            "items": [
+                {
+                    "link": "/components/avatar",
+                    "text": "Avatar 头像"
+                },
+                {
+                    "link": "/components/badge",
+                    "text": "Badge 徽标数"
+                },
+                {
+                    "link": "/components/collapse",
+                    "text": "Collapse 折叠面板"
+                },
+                {
+                    "link": "/components/empty",
+                    "text": "Empty 空状态"
+                }
+            ]
+        },
+        {
+            "text": "反馈",
+            "items": [
+                {
+                    "link": "/components/alert",
+                    "text": "Alert 警告提示"
+                },
+                {
+                    "link": "/components/spin",
+                    "text": "Spin 加载中"
                 }
             ]
         }

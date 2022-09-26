@@ -1,4 +1,4 @@
-import { defineComponent, ref, onMounted, onUpdated, nextTick, onUnmounted, openBlock, createElementBlock, normalizeClass, unref, createElementVNode, Fragment, renderList, toDisplayString, createCommentVNode, renderSlot, useSlots, computed, Text, pushScopeId, popScopeId, normalizeStyle, h as h$1, createVNode, createBlock, Transition, withCtx, shallowRef, watch, provide, inject, createTextVNode, withDirectives, vShow } from "vue";
+import { defineComponent, ref, onMounted, onUpdated, nextTick, onUnmounted, openBlock, createElementBlock, normalizeClass, unref, createElementVNode, Fragment, renderList, toDisplayString, createCommentVNode, renderSlot, useSlots, computed, Text, pushScopeId, popScopeId, normalizeStyle, watch, h as h$1, createVNode, createBlock, Transition, withCtx, shallowRef, provide, inject, createTextVNode, withDirectives, vShow } from "vue";
 var useConfigInject = (name) => {
   const prefixCls = name ? `na-${name}` : "na";
   return {
@@ -846,7 +846,7 @@ const componentSizeMap = {
 const spaceProps = {
   align: {
     type: String,
-    default: ""
+    default: "center"
   },
   direction: {
     type: String,
@@ -871,11 +871,12 @@ var Space = defineComponent({
     const {
       prefixCls
     } = useConfigInject("space");
-    const {
-      size
-    } = props;
+    const size = ref(props.size);
+    watch(() => props.size, (newValue) => {
+      size.value = newValue;
+    });
     const gapSize = computed(() => {
-      return typeof Number(size) === "number" ? `${size}px` : `${componentSizeMap[size]}px`;
+      return isNaN(Number(size.value)) ? `${componentSizeMap[size.value]}px` : `${size.value}px`;
     });
     return () => {
       var _a;
@@ -1019,7 +1020,7 @@ const alertProps = {
   border: C.bool
 };
 var index_vue_vue_type_style_index_0_scoped_true_lang$3 = "";
-const _withScopeId$1 = (n2) => (pushScopeId("data-v-61b1190c"), n2 = n2(), popScopeId(), n2);
+const _withScopeId$1 = (n2) => (pushScopeId("data-v-3603d470"), n2 = n2(), popScopeId(), n2);
 const _hoisted_1$2 = {
   key: 0,
   focusable: "false",
@@ -1140,11 +1141,12 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
                 class: normalizeClass(`${unref(prefixCls)}-description`)
               }, toDisplayString(_ctx.description), 3)) : createCommentVNode("v-if", true)
             ], 2),
-            createElementVNode("button", {
+            _ctx.closable ? (openBlock(), createElementBlock("button", {
+              key: 0,
               type: "button",
               class: normalizeClass(`${unref(prefixCls)}-close-icon`),
               onClick: handleClose
-            }, _hoisted_14, 2)
+            }, _hoisted_14, 2)) : createCommentVNode("v-if", true)
           ], 2)) : createCommentVNode("v-if", true)
         ]),
         _: 1
@@ -1152,14 +1154,18 @@ const _sfc_main$5 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var Alert = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-61b1190c"]]);
+var Alert = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-3603d470"]]);
 const NAlert = withInstall(Alert);
 const inputProps = {
   modelValue: {
     type: [String || Number || Object],
     default: ""
   },
-  placeholder: C.string
+  placeholder: C.string,
+  disabled: {
+    type: Boolean,
+    default: false
+  }
 };
 const inputEmits = {
   ["update:modelValue"]: (value) => value,
@@ -1169,7 +1175,7 @@ const inputEmits = {
   focus: (value) => value
 };
 var index_vue_vue_type_style_index_0_scoped_true_lang$2 = "";
-const _hoisted_1$1 = ["placeholder"];
+const _hoisted_1$1 = ["placeholder", "disabled"];
 const __default__$4 = defineComponent({
   name: "NInput"
 });
@@ -1227,7 +1233,8 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
         class: normalizeClass([
           `${unref(prefixCls)}`,
           (((_a = _ctx.$slots) == null ? void 0 : _a.prefix) || ((_b = _ctx.$slots) == null ? void 0 : _b.suffix)) && `${unref(prefixCls)}-group`,
-          focused.value && `${unref(prefixCls)}-focused`
+          focused.value && `${unref(prefixCls)}-focused`,
+          _ctx.disabled && `is-disabled`
         ])
       }, [
         ((_c = _ctx.$slots) == null ? void 0 : _c.prefix) ? (openBlock(), createElementBlock("span", {
@@ -1248,7 +1255,8 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
             onInput: handleInput,
             onChange: handleChange,
             onFocus: handleFocus,
-            onBlur: handleBlur
+            onBlur: handleBlur,
+            disabled: _ctx.disabled
           }, null, 42, _hoisted_1$1)
         ], 2),
         ((_d = _ctx.$slots) == null ? void 0 : _d.suffix) ? (openBlock(), createElementBlock("span", {
@@ -1261,7 +1269,7 @@ const _sfc_main$4 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var Input = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-61fdefbd"]]);
+var Input = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["__scopeId", "data-v-4700646c"]]);
 const NInput = withInstall(Input);
 const rowProps = {
   justify: {
@@ -1313,14 +1321,14 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
     const { prefixCls } = useConfigInject("col");
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", {
-        class: normalizeClass([`${unref(prefixCls)}`, `${unref(prefixCls)}-${_ctx.span}`, _ctx.order && `${unref(prefixCls)}-${_ctx.order}`])
+        class: normalizeClass([`${unref(prefixCls)}`, `${unref(prefixCls)}-${_ctx.span}`, `${unref(prefixCls)}-order-${_ctx.order}`])
       }, [
         renderSlot(_ctx.$slots, "default", {}, void 0, true)
       ], 2);
     };
   }
 });
-var Col = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-2cea0743"]]);
+var Col = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-11ae3f6f"]]);
 const NCol = withInstall(Col);
 const collapseProps = {
   value: { type: [Array, Number, String], default: () => [] },

@@ -79,7 +79,12 @@
                     {{ description }}
                 </div>
             </div>
-            <button type="button" :class="`${prefixCls}-close-icon`" @click="handleClose">
+            <button
+                type="button"
+                :class="`${prefixCls}-close-icon`"
+                @click="handleClose"
+                v-if="closable"
+            >
                 <span class="anticon anticon-close">
                     <svg
                         focusable="false"
@@ -119,5 +124,5 @@ const handleClose = () => {
 };
 </script>
 <style lang="less" scoped>
-@import "../style/alert.less";
+@import '../style/alert.less';
 </style>

@@ -11,7 +11,7 @@ hero:
     actions:
         - theme: brand
           text: 开始
-          link: /guide/
+          link: /guide/introduce
         - theme: alt
           text: 查看源码
           link: https://gitee.com/mderp/nuna-ui

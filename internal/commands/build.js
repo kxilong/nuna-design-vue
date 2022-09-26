@@ -7,6 +7,7 @@ const vueJsx = require('@vitejs/plugin-vue-jsx');
 const DefineOptions = require('unplugin-vue-define-options/vite');
 const { copyFile } = require('fs/promises');
 const copyFolder = require('../tool/actionFile');
+const consola = require('consola');
 
 const projRoot = path.resolve(__dirname, '../../');
 const entryDir = path.resolve(__dirname, '../../packages/components');
@@ -74,6 +75,7 @@ const copyFiles = () =>
     ]);
 
 exports.build = async () => {
+    consola.success('开始构建');
     await buildAll();
 
     const components = fs.readdirSync(entryDir).filter(name => {
@@ -87,4 +89,5 @@ exports.build = async () => {
     }
     copyFiles();
     copyFolder(outputDir, docsDir, true);
+    consola.success('构建完成');
 };

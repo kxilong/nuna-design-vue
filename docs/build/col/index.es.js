@@ -325,14 +325,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const { prefixCls } = useConfigInject("col");
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", {
-        class: normalizeClass([`${unref(prefixCls)}`, `${unref(prefixCls)}-${_ctx.span}`, _ctx.order && `${unref(prefixCls)}-${_ctx.order}`])
+        class: normalizeClass([`${unref(prefixCls)}`, `${unref(prefixCls)}-${_ctx.span}`, `${unref(prefixCls)}-order-${_ctx.order}`])
       }, [
         renderSlot(_ctx.$slots, "default", {}, void 0, true)
       ], 2);
     };
   }
 });
-var Col = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-2cea0743"]]);
+var Col = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-11ae3f6f"]]);
 const withInstall = (main, extra) => {
   main.install = (app) => {
     for (const comp of [main, ...Object.values(extra != null ? extra : {})]) {

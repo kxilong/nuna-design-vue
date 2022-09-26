@@ -4,6 +4,7 @@
             `${prefixCls}`,
             ($slots?.prefix || $slots?.suffix) && `${prefixCls}-group`,
             focused && `${prefixCls}-focused`,
+            disabled && `is-disabled`,
         ]"
     >
         <span :class="`${prefixCls}-prefix`" v-if="$slots?.prefix">
@@ -19,6 +20,7 @@
                 @change="handleChange"
                 @focus="handleFocus"
                 @blur="handleBlur"
+                :disabled="disabled"
             />
         </span>
         <span :class="`${prefixCls}-suffix`" v-if="$slots?.suffix">
@@ -93,5 +95,5 @@ onMounted(() => {
 });
 </script>
 <style lang="less" scoped>
-    @import "../style/input.less";
+@import '../style/input.less';
 </style>

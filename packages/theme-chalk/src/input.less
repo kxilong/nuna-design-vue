@@ -8,13 +8,15 @@
 
 @input-prefix-cls: ~'@{na-prefix}-input';
 
+.is-disabled{
+    cursor: not-allowed;
+}
 
 .@{input-prefix-cls} {
     .reset-component();
 
     width: 100%;
     display: inline-block;
-
     &-prefix{
         margin-right: 4px;
     }

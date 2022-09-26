@@ -13,7 +13,7 @@ type directionTypes = 'vertical' | 'horizontal';
 export const spaceProps = {
     align: {
         type: String as PropType<alignTypes>,
-        default: '',
+        default: 'center',
     },
     direction: {
         type: String as PropType<directionTypes>,

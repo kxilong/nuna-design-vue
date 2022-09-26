@@ -325,7 +325,7 @@ var _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const _withScopeId = (n2) => (pushScopeId("data-v-61b1190c"), n2 = n2(), popScopeId(), n2);
+const _withScopeId = (n2) => (pushScopeId("data-v-3603d470"), n2 = n2(), popScopeId(), n2);
 const _hoisted_1 = {
   key: 0,
   focusable: "false",
@@ -446,11 +446,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 class: normalizeClass(`${unref(prefixCls)}-description`)
               }, toDisplayString(_ctx.description), 3)) : createCommentVNode("v-if", true)
             ], 2),
-            createElementVNode("button", {
+            _ctx.closable ? (openBlock(), createElementBlock("button", {
+              key: 0,
               type: "button",
               class: normalizeClass(`${unref(prefixCls)}-close-icon`),
               onClick: handleClose
-            }, _hoisted_14, 2)
+            }, _hoisted_14, 2)) : createCommentVNode("v-if", true)
           ], 2)) : createCommentVNode("v-if", true)
         ]),
         _: 1
@@ -458,7 +459,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var Alert = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-61b1190c"]]);
+var Alert = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-3603d470"]]);
 const withInstall = (main, extra) => {
   main.install = (app) => {
     for (const comp of [main, ...Object.values(extra != null ? extra : {})]) {

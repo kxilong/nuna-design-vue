@@ -7,6 +7,7 @@ es/
 lib/
 _site/
 dist/
+build/
 components/version/version.tsx
 .eslintrc.js
 .prettierrc.js

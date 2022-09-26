@@ -1,5 +1,5 @@
 <template>
-    <div :class="[`${prefixCls}`, `${prefixCls}-${span}`, order && `${prefixCls}-${order}`]">
+    <div :class="[`${prefixCls}`, `${prefixCls}-${span}`, `${prefixCls}-order-${order}`]">
         <slot></slot>
     </div>
 </template>
@@ -15,5 +15,5 @@ defineProps(colProps);
 const { prefixCls } = useConfigInject('col');
 </script>
 <style lang="less" scoped>
-    @import "../style/col.less";
+@import '../style/col.less';
 </style>

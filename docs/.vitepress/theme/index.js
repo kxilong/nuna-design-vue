@@ -3,7 +3,7 @@
 import DefaultTheme from 'vitepress/theme';
 import 'vitepress-theme-demoblock/theme/styles/index.css';
 import { registerComponents } from './register-components.js';
-import '@nuna-ui/theme-chalk/src/index.less';
+import '../../build/style.css';
 import './styles/index.less';
 import NunaDesignVue from '../../build';
 

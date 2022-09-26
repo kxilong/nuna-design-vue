@@ -1,4 +1,4 @@
-import { defineComponent, computed, renderSlot, h, createVNode } from "vue";
+import { defineComponent, ref, watch, computed, renderSlot, h, createVNode } from "vue";
 var useConfigInject = (name) => {
   const prefixCls = name ? `na-${name}` : "na";
   return {
@@ -14,7 +14,7 @@ const componentSizeMap = {
 const spaceProps = {
   align: {
     type: String,
-    default: ""
+    default: "center"
   },
   direction: {
     type: String,
@@ -39,11 +39,12 @@ var Space = defineComponent({
     const {
       prefixCls
     } = useConfigInject("space");
-    const {
-      size
-    } = props;
+    const size = ref(props.size);
+    watch(() => props.size, (newValue) => {
+      size.value = newValue;
+    });
     const gapSize = computed(() => {
-      return typeof Number(size) === "number" ? `${size}px` : `${componentSizeMap[size]}px`;
+      return isNaN(Number(size.value)) ? `${componentSizeMap[size.value]}px` : `${size.value}px`;
     });
     return () => {
       var _a;
