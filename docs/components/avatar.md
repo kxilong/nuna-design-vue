@@ -85,7 +85,6 @@ const { circleUrl, squareUrl, sizeList } = toRefs(state);
         <div>
             <n-avatar>
                 <template #icon>
-                    <?xml version="1.0" encoding="UTF-8"?>
                     <svg
                         width="14"
                         height="14"
