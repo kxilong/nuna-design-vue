@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://mderp.gitee.io/nuna-design-vue/">
-    <img width="200" src="https://files.catbox.moe/zw0vsa.png">
+    <img width="200" src="https://files.catbox.moe/48dn9a.png">
   </a>
 </p>
 
@@ -10,9 +10,9 @@
 
 <div align="center">
 
-An enterprise-class UI components based on Ant Design and Vue 3.
+An enterprise-class UI components based on Nuna Design and Vue 3.
 
-[![npm package](https://img.shields.io/npm/v/ant-design-vue.svg?style=flat-square)](https://www.npmjs.org/package/ant-design-vue) [![NPM downloads](http://img.shields.io/npm/dm/ant-design-vue.svg?style=flat-square)](http://www.npmtrends.com/ant-design-vue) [![backers](https://opencollective.com/ant-design-vue/backers/badge.svg)](#backers) [![issues-helper](https://img.shields.io/badge/Issues%20Manage%20By-issues--helper-orange?style=flat-square)](https://github.com/actions-cool/issues-helper)
+[![npm package](https://img.shields.io/npm/v/nuna-design-vue.svg?style=flat-square)](https://www.npmjs.org/package/nuna-design-vue)
 
 </div>
 
@@ -23,12 +23,12 @@ An enterprise-class UI components based on Ant Design and Vue 3.
 
 ## 支持环境
 
--   现代浏览器。1.x 版本支持 IE 9+（需要 [polyfills](https://www.antdv.com/docs/vue/getting-started-cn/#兼容性)）
+-   现代浏览器。
 -   支持 Vue 2 和 Vue 3
 
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Electron |
-| --- | --- | --- | --- | --- | --- |
-| Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
+## License
+
+Nuna Design Vue is open source software licensed as MIT.
 
 ## 链接
 

@@ -1,17 +1,25 @@
-# 快速开始
+# 快速上手
 
-本节将介绍如何在项目中使用 KittyUI
+## 使用组件
 
-## 用法
-
+```bash
+$ npm i --save nuna-design-vue
 ```
-<template>
-  <Button>按钮</Button>
-</template>
 
-<script setup>
+## 注册
 
-import { Button } from 'kitty-ui'
+1. 全局注册
 
-</script>
+```vue
+import { createApp } from "vue"; import "./style.css"; import App from "./App.vue"; import
+NunaDesignVue from "nuna-design-vue"; import "nuna-design-vue/style.css"; const app =
+createApp(App); app.use(NunaDesignVue); app.mount("#app");
+```
+
+2. 全局部分注册
+
+```vue
+import { createApp } from "vue"; import "./style.css"; import App from "./App.vue"; import { NButton
+} from "nuna-design-vue"; import "nuna-design-vue/button/style.css"; const app = createApp(App);
+app.use(NButton); app.mount("#app");
 ```

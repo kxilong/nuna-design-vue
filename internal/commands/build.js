@@ -23,7 +23,7 @@ const baseConfig = defineConfig({
 });
 
 const rollupOptions = {
-    external: ['vue', 'vue-router', '@vueuse/core', '@floating-ui/dom'],
+    external: ['vue', 'vue-router', '@vueuse/core', '@floating-ui/dom', 'docs', 'packages'],
     output: {
         globals: {
             vue: 'Vue',
@@ -88,6 +88,6 @@ exports.build = async () => {
         await buildSingle(comp);
     }
     copyFiles();
-    copyFolder(outputDir, docsDir, true);
+    copyFolder(outputDir, docsDir);
     consola.success('构建完成');
 };

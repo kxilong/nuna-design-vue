@@ -11,7 +11,7 @@
         "dev": "pnpm -C play dev",
         "test": "vitest",
         "coverage": "vitest run --coverage",
-        "build": "pnpm run clean && node ./internal/index.js build",
+        "build": "node ./internal/index.js build",
         "clean": "node ./internal/index.js clean",
         "preview": "vite preview",
         "gen": "bash ./scripts/gc.sh",
@@ -20,7 +20,7 @@
         "lint:style": "stylelint \"./**/*.{css,less,vue,html}\" --fix",
         "prepare": "husky install",
         "docs:dev": "pnpm build && pnpm run register:components && vitepress dev docs",
-        "docs:build": "vitepress build docs",
+        "docs:build": "pnpm build && vitepress build docs",
         "docs:serve": "vitepress serve docs  --port 8080",
         "register:components": "vitepress-rc"
     },
@@ -70,8 +70,10 @@
         "stylelint-config-standard-vue": "^1.0.0",
         "stylelint-less": "^1.0.6",
         "stylelint-order": "^5.0.0",
+        "ts-morph": "^16.0.0",
         "typescript": "^4.5.4",
         "vite": "^2.9.9",
+        "vite-plugin-dts": "^1.5.0",
         "vitepress": "1.0.0-alpha.5",
         "vitest": "^0.22.1",
         "vue-tsc": "^0.34.7"

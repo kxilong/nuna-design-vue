@@ -13,7 +13,7 @@ hero:
           text: 开始
           link: /guide/introduce
         - theme: alt
-          text: 查看源码
+          text: 在gitee上查看
           link: https://gitee.com/mderp/nuna-ui
 
 features:

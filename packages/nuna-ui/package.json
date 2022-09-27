@@ -1,12 +1,37 @@
 {
     "name": "nuna-design-vue",
     "version": "1.0.0",
-    "private": false,
-    "description": "",
+    "description": "A Component Library for Vue 3",
+    "keywords": [
+        "nuna-design-vue",
+        "design",
+        "component library",
+        "ui framework",
+        "ui",
+        "vue"
+    ],
+    "homepage": "https://kxilong.github.io/nuna-design-vue/",
+    "bugs": {
+        "url": "https://github.com/kxilong/nuna-design-vue/issues"
+    },
     "main": "./index.umd.js",
     "module": "./index.es.js",
     "style": "style.css",
-    "author": "",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kxilong/nuna-design-vue.git"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "author": "板栗🌰",
     "license": "MIT",
-    "dependencies": {}
+    "peerDependencies": {
+        "vue": "^3.2.0"
+    },
+    "browserslist": [
+        "> 1%",
+        "not ie 11",
+        "not op_mini all"
+    ]
 }
