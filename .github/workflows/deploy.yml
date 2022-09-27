@@ -23,8 +23,11 @@ jobs:
           
       - name: Install dependencies
         run: pnpm install
-        
-      - name: Build
+      
+      - name: Build Components
+        run: pnpm build
+
+      - name: Build Docs
         run: pnpm docs:build
 
       - name: Deploy

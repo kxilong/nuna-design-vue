@@ -88,6 +88,6 @@ exports.build = async () => {
         await buildSingle(comp);
     }
     copyFiles();
-    copyFolder(outputDir, docsDir);
+    copyFolder(outputDir, docsDir, true);
     consola.success('构建完成');
 };

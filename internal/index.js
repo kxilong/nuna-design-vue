@@ -10,7 +10,6 @@ program.command('clean').description('清理文件夹').action(clean);
 program
     .command('build')
     .description('打包组件库')
-    .hook('postAction', clean)
     .hook('postAction', generateTypesDefinitions)
     .action(build);
 
